@@ -1,0 +1,18 @@
+[submodule "bundle/ag-vim"]
+	path = bundle/ag-vim
+	url = git@github.com:rking/ag.vim.git
+[submodule "bundle/ctrlp"]
+	path = bundle/ctrlp
+	url = git@github.com:kien/ctrlp.vim.git
+[submodule "bundle/vim-projectionist"]
+	path = bundle/vim-projectionist
+	url = git@github.com:tpope/vim-projectionist.git
+[submodule "bundle/vim-rails"]
+	path = bundle/vim-rails
+	url = git@github.com:tpope/vim-projectionist.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule "bundle/vim-ruby"]
+	path = bundle/vim-ruby
+	url = git@github.com:vim-ruby/vim-ruby.git
