@@ -116,7 +116,7 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :set t_Co=256 " 256 colors
 :set background=dark
-:color default
+:color codeschool
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
@@ -132,6 +132,10 @@ imap <c-b> import ipdb;ipdb.set_trace()
 " Can't be bothered to understand ESC vs <c-c> in insert mode
 imap <c-c> <esc>
 
+map <C-L> <C-W><C-L>
+map <C-K> <C-W><C-K>
+map <C-J> <C-W><C-J>
+map <C-H> <C-W><C-H>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -139,11 +143,12 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
 
-let g:ctrlp_max_files=0
-set ttyfast
-set complete-=i
-let g:ycm_collect_identifiers_from_tags_files=1
-let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:40,results:30'
-let g:ctrlp_use_caching = 1
-let g:miniBufExplShowBufNumbers = 0
-let g:ctrlp_clear_cache_on_exit = 0
+:let g:ctrlp_max_files=0
+:set ttyfast
+:set complete-=i
+:let g:ycm_collect_identifiers_from_tags_files=1
+:let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:40,results:30'
+:let g:ctrlp_use_caching = 1
+:let g:miniBufExplShowBufNumbers = 0
+:let g:ctrlp_clear_cache_on_exit = 0
+:set completeopt=menu,menuone
