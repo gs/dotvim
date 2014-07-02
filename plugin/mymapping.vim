@@ -17,7 +17,7 @@ map ,b :CtrlPBuffer<cr>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map <C-t> <esc>:tabnew<CR>
-map ,F <esc>:FuzzyFinderTag<cr>
+map ,F <esc>:tjump 
 map <C-x> <C-w>c
 nnoremap \ ;
 nnoremap ; :
