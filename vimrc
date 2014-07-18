@@ -17,6 +17,7 @@ set softtabstop=4
 set autoindent
 set laststatus=2
 set showmatch
+set smartindent
 set incsearch
 set hlsearch
 " make searches case-sensitive only if they contain upper-case characters
@@ -116,7 +117,7 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :set t_Co=256 " 256 colors
 :set background=dark
-:color codeschool
+:color cobalt
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
