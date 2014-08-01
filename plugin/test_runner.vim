@@ -89,7 +89,7 @@ function! RunTests(filename)
         if $YELP_IN_SANDBOX == 1
           silent! exec ":!tmux splitw -p 30 && tmux send-key testify '" . " '" . a:filename ."' '" . tst
         else
-          exec ":!echo testify " . a:filename . " " . tst
+          exec ":!echo testify " . a:filename . " " . tst . " > .tests"
         endif
       endif
     else
