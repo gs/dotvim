@@ -4,6 +4,7 @@ map ,fT <esc>yiw:Ag <c-r>" -G _test.py<cr>
 
 "map ,w <esc>:w!\|!scp % dev14-devc:/nail/home/grzegorz/pg/loc/%<cr>
 
+map ,np :e /Volumes/YelpNotes/
 function SyncMe()
     exec ':write'
     let file = expand('%')
