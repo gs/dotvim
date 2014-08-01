@@ -117,7 +117,7 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :set t_Co=256 " 256 colors
 :set background=dark
-:color cobalt
+:color tir_black
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
@@ -152,4 +152,6 @@ map <leader>v :view %%
 :let g:ctrlp_use_caching = 1
 :let g:miniBufExplShowBufNumbers = 0
 :let g:ctrlp_clear_cache_on_exit = 0
+:set winheight=10
 :set completeopt=menu,menuone
+:set winminheight=10
