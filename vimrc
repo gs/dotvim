@@ -149,9 +149,9 @@ map <leader>v :view %%
 :set complete-=i
 :let g:ycm_collect_identifiers_from_tags_files=1
 :let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:40,results:30'
-:let g:ctrlp_use_caching = 1
 :let g:miniBufExplShowBufNumbers = 0
 :let g:ctrlp_clear_cache_on_exit = 0
 :set winheight=10
 :set completeopt=menu,menuone
 :set winminheight=10
+:let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
