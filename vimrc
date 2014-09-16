@@ -117,7 +117,8 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :set t_Co=256 " 256 colors
 :set background=dark
-:color tir_black
+:color lucius
+LuciusBlackLowContrast
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
@@ -154,4 +155,5 @@ map <leader>v :view %%
 :set winheight=10
 :set completeopt=menu,menuone
 :set winminheight=10
+:set nonu
 :let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
