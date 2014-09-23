@@ -423,7 +423,7 @@ if s:style == "light"
     endif
 else
     hi CursorColumn                 guibg=#444444
-    hi CursorLine                   guibg=#3a3a3a
+    hi CursorLine                   guibg=#000000
     hi IncSearch    guifg=bg
     hi MatchParen   guifg=bg
     hi Search       guifg=bg
@@ -546,10 +546,10 @@ if s:style == "light"
     endif
 else
     hi ColorColumn                  guibg=#3a3a3a
-    hi CursorLineNr guifg=#9e9e9e   guibg=#444444
+    hi CursorLineNr guifg=#9e9e9e   guibg=#000000
     hi FoldColumn                   guibg=#4e4e4e
     hi Folded                       guibg=#4e4e4e
-    hi LineNr       guifg=#626262   guibg=#444444
+    hi LineNr       guifg=#626262   guibg=#000000
     hi PmenuSel                     guibg=#005f87
     hi SignColumn                   guibg=#4e4e4e
     hi StatusLineNC guifg=#4e4e4e
