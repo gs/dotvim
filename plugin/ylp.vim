@@ -21,5 +21,6 @@ function SyncMe()
 endfunction
 
 map ,w :call SyncMe()<cr>
+map <c-s> :call SyncMe()<cr>
 
 set wildignore+=build/**,templates/*.py*,mobile_templates/*.py*,biz_templates/*.py*,admin_templates/*.py*,lite_templates/*.py*

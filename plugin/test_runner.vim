@@ -2,7 +2,7 @@
 " RUNNING TESTS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! MapCR()
-  nnoremap <cr> :call RunTestFile()<cr>
+  nnoremap <cr> :w!\|:call RunTestFile()<cr>
 endfunction
 call MapCR()
 "nnoremap <leader>T :call RunNearestTest()<cr>

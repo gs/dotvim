@@ -117,8 +117,12 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :set t_Co=256 " 256 colors
 :set background=dark
-:color lucius
-LuciusBlackLowContrast
+":colo grb256
+":color lucius
+"colo grb256
+colo lighttable
+"colo 256-grayvim
+"LuciusBlackLowContrast
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
@@ -157,3 +161,6 @@ map <leader>v :view %%
 :set winminheight=10
 :set nonu
 :let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+:set paste
+:let g:netrw_liststyle=3
+:set autowrite
