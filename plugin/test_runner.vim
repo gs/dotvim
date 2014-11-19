@@ -5,10 +5,10 @@ function! MapCR()
   nnoremap <cr> :call RunTestFile()<cr>
 endfunction
 call MapCR()
-nnoremap <leader>T :call RunNearestTest()<cr>
-nnoremap <leader>t :call RunTests('')<cr>
-nnoremap <leader>c :w\|:!script/features<cr>
-nnoremap <leader>w :w\|:!script/features --profile wip<cr>
+"nnoremap <leader>T :call RunNearestTest()<cr>
+"noremap <leader>t :call RunTests('')<cr>
+"noremap <leader>c :w\|:!script/features<cr>
+"noremap <leader>w :w\|:!script/features --profile wip<cr>
 
 function! RunTestFile(...)
     if a:0
@@ -55,15 +55,20 @@ endfunction
 
 
 function! FindTest()
-  let func = getline(search('def\stest\_\w\+\ze' , 'bn'))
+  let cls_regexp = '^class\s\zs\w\+\ze'
+  let func_regexp = 'def\stest\_\w\+\ze'
+
+  let func_line = search(func_regexp, 'bn', line("w0"))
+  let func = getline(search(func_regexp, 'bn'))
   let func = substitute(func,'\s*def\s', '', 'g')
   let func = substitute(func,'(.*):', '', 'g')
 
-  let cls = getline(search('^class\s\zs\w\+\ze', 'bn'))
+  let cls_line = search(cls_regexp, 'bn', line("w0"))
+  let cls = getline(search(cls_regexp, 'bn'))
   let cls = substitute(cls,'class\s', '', 'g')
   let cls = substitute(cls,'(.*):', '', 'g')
 
-  if func == ""
+  if cls_line > func_line || func == ""
     return cls
   else
     return cls . "." . func
