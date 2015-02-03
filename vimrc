@@ -1,8 +1,9 @@
 call plug#begin('~/.vim/plugged')
-    Plug 'wincent/command-t'
     Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
-    Plug 'tpope/vim-fugitive'
     Plug 'rking/ag.vim'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-projectionist'
+    Plug 'wincent/command-t'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
