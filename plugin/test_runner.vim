@@ -89,7 +89,10 @@ function! RunTests(filename)
     elseif match(a:filename, '_test\.py$') != -1
       let tst = FindTest()
       if system("uname") == "Darwin\n"
+        let msg = "testify " . a:filename . " " . tst  
         exec ":silent !echo testify " . a:filename . " " . tst . " |pbcopy"
+        exec ":silent !sent-to-pg " . msg . "&"
+        redraw!
       else
         if $YELP_IN_SANDBOX == 1
           silent! exec ":!tmux splitw -p 30 && tmux send-key testify '" . " '" . a:filename ."' '" . tst

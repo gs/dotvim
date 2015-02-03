@@ -1,7 +1,8 @@
-autocmd!
-
-execute pathogen#infect()
-
+call plug#begin('~/.vim/plugged')
+Plug 'wincent/command-t'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+"https://github.com/wincent/command-t.git
+call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -160,7 +161,9 @@ map <leader>v :view %%
 :set completeopt=menu,menuone
 :set winminheight=10
 :set nonu
-:let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+":let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 :set paste
 :let g:netrw_liststyle=3
 :set autowrite
+:let g:CommandTHighlightColor='gray'
+let g:CommandTMaxFiles=1000000
