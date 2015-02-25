@@ -3,7 +3,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'rking/ag.vim'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-projectionist'
-    Plug 'wincent/command-t'
+    Plug 'kien/ctrlp.vim'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
