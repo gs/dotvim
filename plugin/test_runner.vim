@@ -90,8 +90,9 @@ function! RunTests(filename)
       let tst = FindTest()
       if system("uname") == "Darwin\n"
         let msg = "testify " . a:filename . " " . tst  
-        exec ":silent !echo testify " . a:filename . " " . tst . " |pbcopy"
-        exec ":silent !sent-to-pg " . msg . "&"
+"        exec ":Start! echo testify " . a:filename . " " . tst . " |pbcopy"
+        exec ":Start! sent-to-pg " . msg 
+"        exec ":silent !sent-to-pg " . msg . "&"
         redraw!
       else
         if $YELP_IN_SANDBOX == 1
