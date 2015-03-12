@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-projectionist'
     Plug 'kien/ctrlp.vim'
+    Plug 'tpope/vim-dispatch'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
@@ -32,7 +33,7 @@ set switchbuf=useopen
 set showtabline=2
 set winwidth=79
 " This makes RVM work inside Vim. I have no idea why.
-set shell=bash
+"set shell=bash
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
 set t_ti= t_te=
@@ -76,7 +77,6 @@ set nofoldenable
 set nojoinspaces
 " If a file is changed outside of vim, automatically reload it without asking
 set autoread
-set paste
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CUSTOM AUTOCMDS
@@ -151,21 +151,17 @@ map <C-H> <C-W><C-H>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
-
 :let g:ctrlp_max_files=0
 :set ttyfast
 :set complete-=i
 :let g:ycm_collect_identifiers_from_tags_files=1
 :let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:40,results:30'
-:let g:miniBufExplShowBufNumbers = 0
 :let g:ctrlp_clear_cache_on_exit = 0
 :set winheight=10
 :set completeopt=menu,menuone
 :set winminheight=10
-:set nonu
+:set nu
 ":let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-:set paste
 :let g:netrw_liststyle=3
 :set autowrite
-:let g:CommandTHighlightColor='gray'
-let g:CommandTMaxFiles=1000000
+:set clipboard=unnamed
