@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.nvim/plugged')
     Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
     Plug 'rking/ag.vim'
     Plug 'tpope/vim-fugitive'
@@ -137,7 +137,7 @@ colo lighttable
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>y "*y
 
-imap <c-b> import ipdb;ipdb.set_trace()
+imap <c-b> import ipdb;ipdb.set_trace()<esc>
 " Can't be bothered to understand ESC vs <c-c> in insert mode
 imap <c-c> <esc>
 
@@ -160,7 +160,7 @@ map <leader>v :view %%
 :set winheight=10
 :set completeopt=menu,menuone
 :set winminheight=10
-:set nu
+:set nonu
 ":let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 :let g:netrw_liststyle=3
 :set autowrite
