@@ -1,10 +1,15 @@
 call plug#begin('~/.nvim/plugged')
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
     Plug 'rking/ag.vim'
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-projectionist'
     Plug 'kien/ctrlp.vim'
     Plug 'tpope/vim-dispatch'
+    Plug 'scrooloose/syntastic'
+    Plug 'dyng/YankRing.vim'
+    Plug 'fxn/vim-monochrome'
+    Plug 'vim-scripts/tir_black'
+    Plug 'ap/vim-buftabline'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
@@ -161,7 +166,15 @@ map <leader>v :view %%
 :set completeopt=menu,menuone
 :set winminheight=10
 :set nonu
-":let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 :let g:netrw_liststyle=3
 :set autowrite
 :set clipboard=unnamed
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+:map ,S :Start! syncpg<cr>
+:map ,Y :Start! ytags<cr>
+:tnoremap <Esc> <C-\><C-n>
+:set mouse=a
+:map ,c :vs<esc>:term<cr>
