@@ -5,6 +5,7 @@ map ,ft <esc>yiw:Ag -U <c-r>" -G .tmpl<cr>
 map ,fT <esc>yiw:Ag -U <c-r>" -G _test.py<cr>
 map ,fj <esc>yiw:Ag -U <c-r>" -G .js<cr>
 map ,fc <esc>yiw:Ag -U <c-r>" -G css<cr>
+:autocmd FileType htmlcheetah set omnifunc=htmlcomplete#CompleteTags
 
 if system("uname") == "Darwin\n"
     :map ,np :CtrlP /Volumes/YelpNotes/<cr>

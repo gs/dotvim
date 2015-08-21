@@ -10,6 +10,7 @@ call plug#begin('~/.nvim/plugged')
     Plug 'fxn/vim-monochrome'
     Plug 'vim-scripts/tir_black'
     Plug 'ap/vim-buftabline'
+    Plug 'Townk/vim-autoclose'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
@@ -178,3 +179,4 @@ endif
 :tnoremap <Esc> <C-\><C-n>
 :set mouse=a
 :map ,c :vs<esc>:term<cr>
+:imap ,/ </<C-X><C-O>
