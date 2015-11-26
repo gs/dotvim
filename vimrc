@@ -1,4 +1,4 @@
-call plug#begin('~/.nvim/plugged')
+call plug#begin('~/.vim/plugged')
     Plug 'rking/ag.vim'
     Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
     Plug 'tpope/vim-fugitive'
@@ -6,11 +6,19 @@ call plug#begin('~/.nvim/plugged')
     Plug 'kien/ctrlp.vim'
     Plug 'tpope/vim-dispatch'
     Plug 'scrooloose/syntastic'
-    Plug 'dyng/YankRing.vim'
     Plug 'fxn/vim-monochrome'
     Plug 'vim-scripts/tir_black'
     Plug 'ap/vim-buftabline'
-    Plug 'Townk/vim-autoclose'
+    Plug 'wting/pair_files.vim'
+    Plug 'wincent/command-t'
+    Plug 'thinca/vim-qfreplace'
+    Plug 'vim-ruby/vim-ruby'
+    Plug 'tpope/vim-rails'
+    Plug 'ryanss/vim-hackernews'
+    Plug 'altercation/vim-colors-solarized'
+    Plug 'ryanss/vim-hackernews'
+    Plug 'w0ng/vim-hybrid'
+    Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
@@ -65,7 +73,8 @@ filetype plugin indent on
 set wildmode=longest,list
 " make tab completion for files/buffers act like bash
 set wildmenu
-let mapleader=","
+"let mapleader=","
+let mapleader=" "
 " Fix slow O inserts
 :set timeout timeoutlen=1000 ttimeoutlen=100
 " Normally, Vim messes with iskeyword when you open a shell file. This can
@@ -174,9 +183,7 @@ let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-:map ,S :Start! syncpg<cr>
-:map ,Y :Start! ytags<cr>
-:tnoremap <Esc> <C-\><C-n>
 :set mouse=a
-:map ,c :vs<esc>:term<cr>
-:imap ,/ </<C-X><C-O>
+set re=1
+:map j gj
+:map k gk
