@@ -9,6 +9,7 @@ map <leader>fT <esc>yiw:Ag -U <c-r>" -G _test.py<cr>
 map <leader>fj <esc>yiw:Ag -U <c-r>" -G .js<cr>
 map <leader>fc <esc>yiw:Ag -U <c-r>" -G css<cr>
 :map gy :cd ~/pg/yelp-main<cr>
+:map <leader>A :PairFileEdit<cr>
 :autocmd FileType htmlcheetah set omnifunc=htmlcomplete#CompleteTags
 
 if system("uname") == "Darwin\n"
@@ -49,5 +50,8 @@ function SentToPg()
     :!sent-to-pg
 endfunction
 
+function OpenGrok()
+    :!open https://opengrok.yelpcorp.com/xref/yelp-main/%
+endfunction
 
-map og :!open https://opengrok.yelpcorp.com/xref/yelp-main/%<cr>
+map og :call OpenGrok()<cr>

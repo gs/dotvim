@@ -20,3 +20,4 @@ nnoremap <leader>k :bp<cr>
 nnoremap <leader>l :bn<cr>
 map <leader>fr :!fandr 
 map <leader>t :CommandT<cr>
+:map <leader>c :Dispatch 

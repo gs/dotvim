@@ -2,12 +2,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'rking/ag.vim'
     Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
     Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-projectionist'
     Plug 'kien/ctrlp.vim'
     Plug 'tpope/vim-dispatch'
     Plug 'scrooloose/syntastic'
-    Plug 'fxn/vim-monochrome'
-    Plug 'vim-scripts/tir_black'
     Plug 'ap/vim-buftabline'
     Plug 'wting/pair_files.vim'
     Plug 'wincent/command-t'
@@ -15,10 +12,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-ruby/vim-ruby'
     Plug 'tpope/vim-rails'
     Plug 'ryanss/vim-hackernews'
-    Plug 'altercation/vim-colors-solarized'
-    Plug 'ryanss/vim-hackernews'
-    Plug 'w0ng/vim-hybrid'
     Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'jiangmiao/auto-pairs'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
@@ -135,12 +130,7 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :set t_Co=256 " 256 colors
 :set background=dark
-":colo grb256
-":color lucius
-"colo grb256
-colo lighttable
-"colo 256-grayvim
-"LuciusBlackLowContrast
+:colo grb256
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
@@ -187,3 +177,4 @@ endif
 set re=1
 :map j gj
 :map k gk
+let g:CommandTMaxFiles=1000000
