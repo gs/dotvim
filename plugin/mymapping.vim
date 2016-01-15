@@ -27,10 +27,12 @@ map <space>bp   :bprevious<cr>
 map <space>bb   :Unite -start-insert buffer<cr>
 map <space>bl   :ls<cr>
 map <space>bd   :bprevious<CR>:bdelete #<CR>
-map <space>bd!  :bd!<cr>
+"map <space>bd!  :bd!<cr>
+map <space>bD :!rm -i %<cr>
 "files naviagation
 "map <space>p
 map <space>pf :Unite -start-insert file_rec/async:!<cr>
+map <space>pp :Unite -start-insert file_rec/git:--cached:--others:--exclude-standard<cr>
 map <space>pr :Unite -start-insert file_mru<cr>
 map <space>pb :Unite -start-insert buffer<cr>
 map <space>pe :edit %%
@@ -38,7 +40,7 @@ map <space>pv :view %%
 
 "in file
 "map <space>f
-map <space>fm :Ag def\  -G %<cr>
+map <space>fm :Unite outline -start-insert<cr>
 map <space>fs :w!<cr>
 map <space>fj <c-]>
 map <space>fA :PairFileEdit<cr>
@@ -47,7 +49,8 @@ map <space>fr <esc>yiw :Ag -U <c-r>"<cr>
 map <space>fR :call RenameFile()<cr>
 
 "search 
-map <space>ss :Ag 
+map <space>/ :Unite line -start-insert<cr>
+map <space>ss :Ggrep 
 map <space>sc :nohl<cr>
 map <space>sj :tjump 
 map <space>sr :!fandr 
