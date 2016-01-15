@@ -1,21 +1,12 @@
 "map <leader>t :CtrlP yelp/tests/<cr>
-map <leader>T :CommandT yelp/tests/<cr>
-map <leader>S :Start! syncpg<cr>
-map <leader>Y :Start! ytags<cr>
-
-map <leader>fp <esc>yiw:Ag -U --ignore='*template*' <c-r>" -G .py<cr>
-map <leader>ft <esc>yiw:Ag -U <c-r>" -G .tmpl<cr>
-map <leader>fT <esc>yiw:Ag -U <c-r>" -G _test.py<cr>
-map <leader>fj <esc>yiw:Ag -U <c-r>" -G .js<cr>
-map <leader>fc <esc>yiw:Ag -U <c-r>" -G css<cr>
-:map gy :cd ~/pg/yelp-main<cr>
-:map <leader>A :PairFileEdit<cr>
+"map <leader>S :Start! syncpg<cr>
+"map <leader>Y :Start! ytags<cr>
 :autocmd FileType htmlcheetah set omnifunc=htmlcomplete#CompleteTags
 
 if system("uname") == "Darwin\n"
-    :map <leader>np :CommandT /Volumes/YelpNotes/<cr>
+    :map <space>ypn :CommandT /Volumes/YelpNotes/<cr>
 else
-    :map <leader>np :CommandT ~/yelp_notes/<cr>
+    :map <space>ypn :CommandT ~/yelp_notes/<cr>
 endif
 
 function SyncMe()
@@ -34,10 +25,10 @@ function SyncMe()
     endif
 endfunction
 
-map <leader>w :call SyncMe()<cr>
-map :w :call SyncMe()<cr>
+"map <leader>w :call SyncMe()<cr>
+"map :w :call SyncMe()<cr>
 map <C-s> :call SyncMe()<cr>
-map <leader>s :call SyncMe()<cr>
+"map <leader>s :call SyncMe()<cr>
 
 function BuildMe()
     :Start! sent-to-pg make
@@ -53,5 +44,12 @@ endfunction
 function OpenGrok()
     :!open https://opengrok.yelpcorp.com/xref/yelp-main/%
 endfunction
-
-map og :call OpenGrok()<cr>
+"yelp project
+map <space>yp :cd ~/pg/yelp-main<cr>
+map <space>yog :call OpenGrok()<cr>
+map <space>syp <esc>yiw:Ag -U --ignore='*template*' <c-r>" -Q .py<cr>
+map <space>syt <esc>yiw:Ag -U <c-r>" -Q .tmpl<cr>
+map <space>syT <esc>yiw:Ag -U <c-r>" -Q _test.py<cr>
+map <space>syj <esc>yiw:Ag -U <c-r>" -Q .js<cr>
+map <space>syc <esc>yiw:Ag -U <c-r>" -Q css<cr>
+"map <space>pT :CommandT yelp/tests/<cr>

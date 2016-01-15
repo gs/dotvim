@@ -2,18 +2,24 @@ call plug#begin('~/.vim/plugged')
     Plug 'rking/ag.vim'
     Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
     Plug 'tpope/vim-fugitive'
-    Plug 'kien/ctrlp.vim'
+    "Plug 'kien/ctrlp.vim'
     Plug 'tpope/vim-dispatch'
     Plug 'scrooloose/syntastic'
     Plug 'ap/vim-buftabline'
     Plug 'wting/pair_files.vim'
-    Plug 'wincent/command-t'
+    "Plug 'wincent/command-t'
     Plug 'thinca/vim-qfreplace'
     Plug 'vim-ruby/vim-ruby'
     Plug 'tpope/vim-rails'
     Plug 'ryanss/vim-hackernews'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'jiangmiao/auto-pairs'
+    Plug 'Shougo/unite.vim'
+    Plug 'Shougo/neomru.vim'
+    Plug 'Shougo/vimproc.vim'
+    Plug 'rstacruz/vim-fastunite'
+    Plug 'Shougo/unite-outline'
+    Plug 'tsukkee/unite-tag'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
@@ -137,25 +143,9 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MISC KEY MAPS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>y "*y
-
-imap <c-b> import ipdb;ipdb.set_trace()<esc>
-" Can't be bothered to understand ESC vs <c-c> in insert mode
-imap <c-c> <esc>
-
-map <C-L> <C-W><C-L>
-map <C-K> <C-W><C-K>
-map <C-J> <C-W><C-J>
-map <C-H> <C-W><C-H>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>e :edit %%
-map <leader>v :view %%
 :let g:ctrlp_max_files=0
 :set ttyfast
 :set complete-=i
@@ -175,6 +165,6 @@ if executable('ag')
 endif
 :set mouse=a
 set re=1
-:map j gj
-:map k gk
 let g:CommandTMaxFiles=1000000
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+let g:unite_source_rec_max_cache_files = 0
