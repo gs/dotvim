@@ -53,7 +53,7 @@ map <space>/ :Ggrep
 map <space>sc :nohl<cr>
 map <space>sj :tjump 
 map <space>sr :!fandr 
-map <space>ss :Unite line -start-insert<cr>
+map <space>ss :Unite line -start-insert -auto-highlight<cr>
 "commands
 map <space>! :Dispatch 
 
