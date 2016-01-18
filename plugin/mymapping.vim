@@ -31,8 +31,8 @@ map <space>bd   :bprevious<CR>:bdelete #<CR>
 map <space>bD :!rm -i %<cr>
 "files naviagation
 "map <space>p
-map <space>pf :Unite -start-insert file_rec/async:!<cr>
 map <space>pp :Unite -resume -buffer-name=project -no-restore -input= -start-insert -hide-source-names -unique file_rec/git:--cached:--others:--exclude-standard<cr>
+map <space>pf :Unite -start-insert file_rec/async:!<cr>
 map <space>pr :Unite -start-insert file_mru<cr>
 map <space>pb :Unite -start-insert buffer<cr>
 map <space>pe :edit %%
