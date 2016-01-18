@@ -166,5 +166,12 @@ endif
 :set mouse=a
 set re=1
 let g:CommandTMaxFiles=1000000
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
+"call unite#filters#matcher_default#use(['matcher_fuzzy'])
+let g:unite_data_directory = expand("~/.cache/unite")
 let g:unite_source_rec_max_cache_files = 0
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts =
+            \ '-i --vimgrep --hidden --ignore ' .
+            \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+let g:unite_source_grep_recursive_opt = ''
+let g:unite_source_history_yank_enable = 1
