@@ -2,12 +2,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'rking/ag.vim'
     Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
     Plug 'tpope/vim-fugitive'
-    "Plug 'kien/ctrlp.vim'
     Plug 'tpope/vim-dispatch'
     Plug 'scrooloose/syntastic'
     Plug 'ap/vim-buftabline'
     Plug 'wting/pair_files.vim'
-    "Plug 'wincent/command-t'
     Plug 'thinca/vim-qfreplace'
     Plug 'vim-ruby/vim-ruby'
     Plug 'tpope/vim-rails'
@@ -17,9 +15,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/unite.vim'
     Plug 'Shougo/neomru.vim'
     Plug 'Shougo/vimproc.vim'
-    Plug 'rstacruz/vim-fastunite'
     Plug 'Shougo/unite-outline'
-    Plug 'tsukkee/unite-tag'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
