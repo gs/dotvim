@@ -18,8 +18,6 @@ map <space>wc :cclose<cr>
 map <space>ww :cwindow<cr>
 map <space>wn <c-w>w
 
-
-
 "buffers
 "map <space>b
 map <space>bn   :bnext<cr>
@@ -28,10 +26,10 @@ map <space>bb   :Unite -start-insert buffer<cr>
 map <space>bl   :ls<cr>
 map <space>bd   :bprevious<CR>:bdelete #<CR>
 "map <space>bd!  :bd!<cr>
-map <space>bD :!rm -i %<cr>
-"files naviagation
+"
+"files/project navigation
 "map <space>p
-map <space>pp :Unite -resume -buffer-name=project -no-restore -input= -start-insert -hide-source-names -unique file_rec/git:--cached:--others:--exclude-standard<cr>
+map <space>pp :Unite -buffer-name=project -input= -start-insert -hide-source-names -unique file_rec/git:--cached:--others:--exclude-standard<cr>
 map <space>pf :Unite -start-insert file_rec/async:!<cr>
 map <space>pr :Unite -start-insert file_mru<cr>
 map <space>pb :Unite -start-insert buffer<cr>
@@ -40,20 +38,24 @@ map <space>pv :view %%
 
 "in file
 "map <space>f
-map <space>fm :Unite -buffer-name=outline -auto-highlight outline -start-insert<cr>
 map <space>fs :w!<cr>
 map <space>fj <c-]>
-map <space>fA :PairFileEdit<cr>
-map <space>fa <esc>yiw :Ag -U <c-r>"\ \{0,1\}= -G %<cr>
-map <space>fr <esc>yiw :Ag -U <c-r>"<cr>
+map <space>fa :PairFileEdit<cr>
+map <space>fA :PairFileVSplitEdit<cr>
 map <space>fR :call RenameFile()<cr>
+map <space>fD :!rm -i %<cr>
 
 "search 
-map <space>/ :Ggrep 
+map <space>/ :Ag 
 map <space>sc :nohl<cr>
-map <space>sj :tjump 
-map <space>sr :!fandr 
+map <space>st :tjump 
 map <space>ss :Unite line -start-insert -auto-highlight<cr>
+map <space>sa <esc>yiw :Ag -U <c-r>"\ \{0,1\}= -G %<cr>
+map <space>sA <esc>yiw :Ag -U <c-r>"\ \{0,1\}=\ <cr>
+map <space>sr <esc>yiw :Ag -U <c-r>" -G %<cr>
+map <space>sm :Unite -buffer-name=outline -auto-highlight outline -start-insert<cr>
+map <space>sR <esc>yiw :Ag -U <c-r>"<cr>
+map <space>sfr :!fandr 
 "commands
 map <space>! :Dispatch 
 
