@@ -29,8 +29,9 @@ map <space>bd   :bprevious<CR>:bdelete #<CR>
 "
 "files/project navigation
 "map <space>p
-map <space>pp :Unite -buffer-name=project -input= -start-insert -hide-source-names -unique file_rec/git:--cached:--others:--exclude-standard<cr>
-map <space>pf :Unite -start-insert file_rec/async:!<cr>
+"map <space>pp :Unite -buffer-name=project -resume -start-insert -hide-source-names -unique file_rec/git:--cached:--others:--exclude-standard<cr>
+map <space>pp :CommandT<cr>
+map <space>pf :Unite -start-insert -buffer-name=files -resume file_rec/async:!<cr>
 map <space>pr :Unite -start-insert file_mru<cr>
 map <space>pb :Unite -start-insert buffer<cr>
 map <space>pe :edit %%
