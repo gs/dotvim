@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-dispatch'
     Plug 'scrooloose/syntastic'
-    Plug 'ap/vim-buftabline'
+"    Plug 'ap/vim-buftabline'
     Plug 'wting/pair_files.vim'
     Plug 'thinca/vim-qfreplace'
     Plug 'vim-ruby/vim-ruby'
@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/neomru.vim'
     Plug 'Shougo/vimproc.vim'
     Plug 'Shougo/unite-outline'
+    Plug 'wincent/command-t'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
@@ -171,3 +172,6 @@ let g:unite_source_grep_default_opts =
             \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
 let g:unite_source_grep_recursive_opt = ''
 let g:unite_source_history_yank_enable = 1
+let g:CommandTMatchWindowAtTop=1
+let g:CommandTMaxHeight=30
+let g:CommandTMatchWindowReverse=0
