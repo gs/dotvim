@@ -1,23 +1,43 @@
 call plug#begin('~/.vim/plugged')
-    Plug 'rking/ag.vim'
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-dispatch'
-    Plug 'scrooloose/syntastic'
-"    Plug 'ap/vim-buftabline'
-    Plug 'wting/pair_files.vim'
-    Plug 'thinca/vim-qfreplace'
-    Plug 'vim-ruby/vim-ruby'
-    Plug 'tpope/vim-rails'
-    Plug 'ryanss/vim-hackernews'
-    Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'chrisbra/NrrwRgn'
+    Plug 'ctjhoa/spacevim'
+    Plug 'dbakker/vim-projectroot'
+    Plug 'easymotion/vim-easymotion'
+    Plug 'elzr/vim-json'
+    Plug 'jceb/vim-orgmode'
     Plug 'jiangmiao/auto-pairs'
-    Plug 'Shougo/unite.vim'
-    Plug 'Shougo/neomru.vim'
-    Plug 'Shougo/vimproc.vim'
-    Plug 'Shougo/unite-outline'
+    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf.vim'
+    Plug 'junegunn/gv.vim'
+    Plug 'majutsushi/tagbar'
+    Plug 'mbbill/undotree'
+    Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'rking/ag.vim'
+    Plug 'ryanss/vim-hackernews'
+    Plug 'scrooloose/syntastic'
+    Plug 'thinca/vim-qfreplace'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-dispatch'
+    Plug 'tpope/vim-eunuch'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-rails'
+    Plug 'tpope/vim-speeddating'
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+    Plug 'vim-ruby/vim-ruby'
+    Plug 'vim-scripts/taglist.vim'
     Plug 'wincent/command-t'
+    Plug 'wting/pair_files.vim'
+    Plug 'haya14busa/incsearch.vim'
+    Plug 'hecal3/vim-leader-guide'
+    Plug 'osyo-manga/vim-over'
+    Plug 'sheerun/vim-polyglot'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-vinegar'
+    Plug 'Raimondi/delimitMate'
 call plug#end()
+let g:lmap = {}
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -133,7 +153,7 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :set t_Co=256 " 256 colors
 :set background=dark
-:colo grb256
+:colo blues
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
@@ -163,15 +183,6 @@ endif
 :set mouse=a
 set re=1
 let g:CommandTMaxFiles=1000000
-"call unite#filters#matcher_default#use(['matcher_fuzzy'])
-let g:unite_data_directory = expand("~/.cache/unite")
-let g:unite_source_rec_max_cache_files = 0
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts =
-            \ '-i --vimgrep --hidden --ignore ' .
-            \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-let g:unite_source_grep_recursive_opt = ''
-let g:unite_source_history_yank_enable = 1
 let g:CommandTMatchWindowAtTop=1
 let g:CommandTMaxHeight=30
 let g:CommandTMatchWindowReverse=0
