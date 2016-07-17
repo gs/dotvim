@@ -126,5 +126,3 @@ function! RunTests(filename)
   end
 endfunction
 
-
-

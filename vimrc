@@ -4,37 +4,38 @@ call plug#begin('~/.vim/plugged')
     Plug 'ctjhoa/spacevim'
     Plug 'dbakker/vim-projectroot'
     Plug 'easymotion/vim-easymotion'
-    Plug 'elzr/vim-json'
+    Plug 'haya14busa/incsearch.vim'
+    Plug 'hecal3/vim-leader-guide'
     Plug 'jceb/vim-orgmode'
     Plug 'jiangmiao/auto-pairs'
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/gv.vim'
     Plug 'majutsushi/tagbar'
+    Plug 'mattn/calendar-vim'
     Plug 'mbbill/undotree'
     Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'osyo-manga/vim-over'
+    Plug 'Raimondi/delimitMate'
     Plug 'rking/ag.vim'
     Plug 'ryanss/vim-hackernews'
     Plug 'scrooloose/syntastic'
+    Plug 'sheerun/vim-polyglot'
     Plug 'thinca/vim-qfreplace'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-dispatch'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-jdaddy'
     Plug 'tpope/vim-rails'
     Plug 'tpope/vim-speeddating'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-vinegar'
     Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
     Plug 'vim-ruby/vim-ruby'
     Plug 'vim-scripts/taglist.vim'
-    Plug 'wincent/command-t'
     Plug 'wting/pair_files.vim'
-    Plug 'haya14busa/incsearch.vim'
-    Plug 'hecal3/vim-leader-guide'
-    Plug 'osyo-manga/vim-over'
-    Plug 'sheerun/vim-polyglot'
-    Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-vinegar'
-    Plug 'Raimondi/delimitMate'
+    Plug 'wting/cheetah.vim'
 call plug#end()
 let g:lmap = {}
 
@@ -186,3 +187,5 @@ let g:CommandTMaxFiles=1000000
 let g:CommandTMatchWindowAtTop=1
 let g:CommandTMaxHeight=30
 let g:CommandTMatchWindowReverse=0
+let g:org_agenda_files=['~/yelp_notes/yelplog.org']
+let g:fzf_launcher = "fzf_macvim %s"
