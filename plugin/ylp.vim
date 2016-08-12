@@ -44,9 +44,18 @@ endfunction
 function OpenGrok()
     :!open https://opengrok.yelpcorp.com/xref/yelp-main/%
 endfunction
+function OpenGrokLine()
+    let line_nr = % . line('.')
+    exec ":echom ". line_nr
+    exec ":echo \"https://opengrok.yelpcorp.com/xref/yelp-main/\""line_nr
+    " echo "https://opengrok.yelpcorp.com/xref/yelp-main/". % .  "#" . line_nr
+    "    :!open 
+endfunction
+
 "yelp project
 map <space>yp :cd ~/pg/yelp-main<cr>
 map <space>yog :call OpenGrok()<cr>
+map <space>yogl :call OpenGrokLine()<cr>
 map <space>syp <esc>yiw:Ag -U --ignore='*template*' <c-r>" -Q .py<cr>
 map <space>syt <esc>yiw:Ag -U <c-r>" -Q .tmpl<cr>
 map <space>syT <esc>yiw:Ag -U <c-r>" -Q _test.py<cr>
