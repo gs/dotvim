@@ -2,7 +2,7 @@
 " RUNNING TESTS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! MapCR()
-  nnoremap <cr> :w!\|:call RunTestFile()<cr>
+  nnoremap <cr> :w!\|:call RunTestFile()<cr>:!redraw<cr><cr>
 endfunction
 call MapCR()
 "nnoremap <leader>T :call RunNearestTest()<cr>
@@ -18,7 +18,7 @@ function! RunTestFile(...)
     endif
 
     " Run the tests for the previously-marked file.
-    let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\|_test.py\)$') != -1
+    let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\|_test.py\|_test.js\)$') != -1
     if in_test_file
         call SetTestFile()
     elseif !exists("t:grb_test_file")
@@ -98,9 +98,11 @@ function! RunTests(filename)
         if $YELP_IN_SANDBOX == 1
           silent! exec ":!tmux splitw -p 30 && tmux send-key testify '" . " '" . a:filename ."' '" . tst
         else
-          exec ":silent !echo testify " . a:filename . " " . tst . " > .tests"
+          exec ":silent !echo testify -v " . a:filename . " " . tst . " > .tests"
         endif
       endif
+    elseif match(a:filename, '_test\.js$') != -1
+        exec ":silent !echo yelp/testing/tools/karma.py " . a:filename . " > .tests"
     else
       " First choice: project-specific test script
       if filereadable("script/test")
@@ -125,4 +127,3 @@ function! RunTests(filename)
     end
   end
 endfunction
-
