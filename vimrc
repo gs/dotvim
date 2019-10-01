@@ -16,7 +16,6 @@ endif
 call plug#begin('~/.vim/plugged')
     Plug 'chemzqm/vim-jsx-improve'
     Plug 'clojure-vim/vim-cider'
-    Plug 'eraserhd/parinfer-rust'
     Plug 'guns/vim-clojure-static'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
     Plug 'junegunn/fzf.vim'
@@ -36,6 +35,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'w0rp/ale'
     Plug 'wting/cheetah.vim'
     Plug 'zxqfl/tabnine-vim'
+    Plug 'eraserhd/parinfer-rust', {'do':
+        \  'cargo build --release'}
 call plug#end()
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 syntax enable
@@ -47,7 +48,7 @@ let vimclojure#ParenRainbow=1
 let g:rainbow_active = 1
 set autoindent
 set autoread              " auto read files changed outside vim
-set clipboard=unnamedplus " use the system clipboard
+set clipboard=unnamed     " use the system clipboard
 set colorcolumn=80        " highlight max length column
 set encoding=utf-8        " set encoding
 set expandtab             " tabs to spaces
