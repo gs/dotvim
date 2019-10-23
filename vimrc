@@ -1,40 +1,29 @@
-" Download vim-plug if missing
-if has('nvim')
-  if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall
-  endif
-else
-  if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall
-  endif
+"" Download vim-plug if missing
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
 endif
 
 call plug#begin('~/.vim/plugged')
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'chemzqm/vim-jsx-improve'
     Plug 'clojure-vim/vim-cider'
-    Plug 'guns/vim-clojure-static'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
     Plug 'junegunn/fzf.vim'
-    Plug 'luochen1990/rainbow'
-    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-    Plug 'sheerun/vim-polyglot'
-    Plug 'tpope/vim-classpath'
+"    Plug 'luochen1990/rainbow'
+"    Plug 'sheerun/vim-polyglot'
+"    Plug 'tpope/vim-classpath'
     Plug 'tpope/vim-dispatch'
     Plug 'tpope/vim-fireplace'
     Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-rails'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-salve'
     Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-surround'
-    Plug 'vim-ruby/vim-ruby'
-    Plug 'w0rp/ale'
-    Plug 'wting/cheetah.vim'
-    Plug 'zxqfl/tabnine-vim'
+"   Plug 'wting/cheetah.vim'
+    Plug 'guns/vim-clojure-static'
+    Plug 'guns/vim-clojure-highlight'
     Plug 'eraserhd/parinfer-rust', {'do':
         \  'cargo build --release'}
 call plug#end()
@@ -66,7 +55,7 @@ set scrolljump=1          " scroll 1 line at a time
 set scrolloff=5           " start scrolling 5 lines before bottom of pane
 set shiftwidth=2          " shift lines by 2 characters
 set smartcase             " only use case sensitive search when uppercase
-set tabstop=2             " change default tab length
+"set tabstop=2             " change default tab length
 hi Pmenu ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi PmenuSel ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#313343 gui=NONE
 let &shell="/bin/bash -l"
@@ -94,3 +83,5 @@ map ,b :ls<cr>:buf
 map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 map ,r <esc>yiw\|:Find <c-r>"
+
+":CocInstall coc-snippets coc-tsserver coc-prettier coc-eslint coc-tslint coc-css coc-lists coc-highlight coc-json coc-yaml
