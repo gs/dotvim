@@ -27,32 +27,32 @@ endfunction
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
-nnoremap <silent> <leader>cs  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> ,co  :<C-u>CocList outline<cr>
+nnoremap <silent> ,cs  :<C-u>CocList -I symbols<cr>
 
 " List errors
-nnoremap <silent> <leader>cl  :<C-u>CocList locationlist<cr>
+nnoremap <silent> ,cl  :<C-u>CocList locationlist<cr>
 
 " list commands available in tsserver (and others)
-nnoremap <silent> <leader>cc  :<C-u>CocList commands<cr>
+nnoremap <silent> ,cc  :<C-u>CocList commands<cr>
 
 " restart when tsserver gets wonky
-nnoremap <silent> <leader>cR  :<C-u>CocRestart<CR>
+nnoremap <silent> ,cR  :<C-u>CocRestart<CR>
 
 " view all errors
-nnoremap <silent> <leader>cl  :<C-u>CocList locationlist<CR>
+nnoremap <silent> ,cl  :<C-u>CocList locationlist<CR>
 
 " manage extensions
-nnoremap <silent> <leader>cx  :<C-u>CocList extensions<cr>
+nnoremap <silent> ,cx  :<C-u>CocList extensions<cr>
 
 " rename the current word in the cursor
-nmap <leader>cr  <Plug>(coc-rename)
-nmap <leader>cf  <Plug>(coc-format-selected)
-vmap <leader>cf  <Plug>(coc-format-selected)
+nmap ,cr  <Plug>(coc-rename)
+nmap ,cf  <Plug>(coc-format-selected)
+vmap ,cf  <Plug>(coc-format-selected)
 
 " run code actions
-vmap <leader>ca  <Plug>(coc-codeaction-selected)
-nmap <leader>ca  <Plug>(coc-codeaction-selected)
+vmap ,ca  <Plug>(coc-codeaction-selected)
+nmap ,ca  <Plug>(coc-codeaction-selected)
 
 
 " coc-snippets https://www.npmjs.com/package/coc-snippets
@@ -68,3 +68,26 @@ function! s:check_back_space() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+
+nnoremap <silent> crcc :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'cycle-coll', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
+nnoremap <silent> crth :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'thread-first', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
+nnoremap <silent> crtt :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'thread-last', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
+nnoremap <silent> crtf :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'thread-first-all', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
+nnoremap <silent> crtl :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'thread-last-all', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
+nnoremap <silent> cruw :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'unwind-thread', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
+nnoremap <silent> crua :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'unwind-all', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
+nnoremap <silent> crml :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'move-to-let', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1, input('Binding name: ')]})<CR>
+nnoremap <silent> cril :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'introduce-let', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1, input('Binding name: ')]})<CR>
+nnoremap <silent> crel :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'expand-let', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
+nnoremap <silent> cram :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'add-missing-libspec', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
+nnoremap <silent> crcn :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'clean-ns', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
+nnoremap <silent> cref :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'extract-function', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1, input('Function name: ')]})<CR>
+
+autocmd BufReadCmd,FileReadCmd,SourceCmd jar:file://* call s:LoadClojureContent(expand("<amatch>"))
+ function! s:LoadClojureContent(uri)
+  setfiletype clojure
+  let content = CocRequest('~/bin/clojure-lsp', 'clojure/dependencyContents', {'uri': a:uri})
+  call setline(1, split(content, "\n"))
+  setl nomodified
+  setl readonly
+endfunction

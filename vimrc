@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'chemzqm/vim-jsx-improve'
     Plug 'clojure-vim/vim-cider'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+    Plug 'joshdick/onedark.vim'
     Plug 'junegunn/fzf.vim'
 "    Plug 'luochen1990/rainbow'
 "    Plug 'sheerun/vim-polyglot'
@@ -31,7 +32,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 syntax enable
 tnoremap <Esc> <C-\><C-n>
 let g:python_host_prog = '/usr/local/bin/python2'
-let g:python3_host_prog = '/Users/sfistak/.pyenv/shims/python3'
+let g:python3_host_prog = '/usr/local/bin/python3'
 let vimclojure#HighlightBuiltins=1 
 let vimclojure#ParenRainbow=1
 let g:rainbow_active = 1
@@ -83,5 +84,5 @@ map ,b :ls<cr>:buf
 map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 map ,r <esc>yiw\|:Find <c-r>"
-
+colorscheme onedark
 ":CocInstall coc-snippets coc-tsserver coc-prettier coc-eslint coc-tslint coc-css coc-lists coc-highlight coc-json coc-yaml
