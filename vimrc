@@ -11,7 +11,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'clojure-vim/vim-cider'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
     Plug 'lvht/fzf-mru'
-    Plug 'joshdick/onedark.vim'
     Plug 'junegunn/fzf.vim'
     Plug 'tpope/vim-dispatch'
     Plug 'tpope/vim-fireplace'
@@ -24,6 +23,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'guns/vim-clojure-highlight'
     Plug 'eraserhd/parinfer-rust', {'do':
         \  'cargo build --release'}
+    Plug 'rakr/vim-one'
 call plug#end()
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 syntax enable
@@ -61,7 +61,6 @@ command! -bang -nargs=* Find
 function! Today()
     :pu='* ' . strftime('%d/%m/%y')
 endfunction
-
 command! Today :call Today()
 
 " My mappings
@@ -89,8 +88,9 @@ map ,b <esc>:Buffers<cr>
 map ,t <esc>:BTags<cr>
 "" all tags
 map ,T <esc>:Tags<cr>
-colorscheme onedark
-
+colorscheme one
+hi Pmenu ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi PmenuSel ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#313343 gui=NONE
 
 "" Install coc-vim plugins
 function Cocplugins()
@@ -98,3 +98,4 @@ function Cocplugins()
 endfunction
 
 command! Cocplugininstall :call Cocplugins()
+
