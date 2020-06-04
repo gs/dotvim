@@ -24,6 +24,15 @@ call plug#begin('~/.vim/plugged')
     Plug 'eraserhd/parinfer-rust', {'do':
         \  'cargo build --release'}
     Plug 'rakr/vim-one'
+    Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+    Plug 'justinmk/vim-sneak'
+    Plug 'lilydjwg/colorizer'
+    Plug 'clojure-vim/async-clj-omni'
+    Plug 'Olical/conjure', {'tag': 'v3.4.0'}
+    Plug 'bakpakin/fennel.vim'
 call plug#end()
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 syntax enable
@@ -64,20 +73,21 @@ endfunction
 command! Today :call Today()
 
 " My mappings
-map ,!! :Dispatch  
+map ,!! :Dispatch
 "" use `;` as `:`
 nnoremap \ ;
 nnoremap ; :
 map j gj
 map k gk
-"" Kill current buffer 
-map ,bd :bp\|bd#<cr>
-"" expand current path 
+"" Kill current buffer
+map ,D :bp\|bd#<cr>
+"" expand current path
 map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 "" expand current path in split
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 "" find word under cursor
-map ,r <esc>yiw\|:Find <c-r>"
+map ,r <esc>yiw\|:Ag <c-r>"
+map ,s <esc>:Ag
 "" FZF files
 map ,f <esc>:Files<cr>
 "" FzfMru (most recently used files)
@@ -88,14 +98,29 @@ map ,b <esc>:Buffers<cr>
 map ,t <esc>:BTags<cr>
 "" all tags
 map ,T <esc>:Tags<cr>
-colorscheme muon
-"hi Pmenu ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-"hi PmenuSel ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#313343 gui=NONE
+"colorscheme muon
+colorscheme one
+hi Pmenu ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi PmenuSel ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#313343 gui=NONE
 
 "" Install coc-vim plugins
 function Cocplugins()
-  :CocInstall coc-snippets coc-tsserver coc-prettier coc-eslint coc-tslint coc-css coc-lists coc-highlight coc-json coc-yaml
+  :CocInstall coc-snippets coc-tsserver coc-prettier coc-eslint coc-tslint coc-css coc-lists coc-highlight coc-json coc-yaml coc-conjure
 endfunction
 
 command! Cocplugininstall :call Cocplugins()
+let maplocalleader = "\\"
 
+
+let g:LanguageClient_serverCommands = {
+      \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+      \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+      \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+      \ 'python': ['/usr/local/bin/pyls'],
+      \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+      \ }
+
+
+:nmap ,x :CocCommand explorer<CR>
+
+let g:coc_global_extensions = ['coc-conjure']
