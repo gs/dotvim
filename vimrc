@@ -31,8 +31,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'justinmk/vim-sneak'
     Plug 'lilydjwg/colorizer'
     Plug 'clojure-vim/async-clj-omni'
-    Plug 'Olical/conjure', {'tag': 'v3.4.0'}
+    Plug 'Olical/conjure', {'tag': 'v4.0.1'}
     Plug 'bakpakin/fennel.vim'
+    Plug 'tpope/vim-rails'
+    Plug 'tpope/vim-rake'
+    Plug 'vim-ruby/vim-ruby'
+    Plug 'jceb/vim-orgmode'
 call plug#end()
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 syntax enable
@@ -68,7 +72,7 @@ command! -bang -nargs=* Find
   \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
 
 function! Today()
-    :pu='* ' . strftime('%d/%m/%y')
+    :pu='* ' . strftime('%y/%m/%d')
 endfunction
 command! Today :call Today()
 
@@ -87,7 +91,7 @@ map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 "" find word under cursor
 map ,r <esc>yiw\|:Ag <c-r>"
-map ,s <esc>:Ag
+map ,s <esc>:Find 
 "" FZF files
 map ,f <esc>:Files<cr>
 "" FzfMru (most recently used files)
@@ -98,8 +102,8 @@ map ,b <esc>:Buffers<cr>
 map ,t <esc>:BTags<cr>
 "" all tags
 map ,T <esc>:Tags<cr>
-"colorscheme muon
-colorscheme one
+colorscheme muon
+"colorscheme one
 hi Pmenu ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi PmenuSel ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#313343 gui=NONE
 
@@ -110,6 +114,7 @@ endfunction
 
 command! Cocplugininstall :call Cocplugins()
 let maplocalleader = "\\"
+"clojure mappings: \ee (execute current) \er (executer outside)
 
 
 let g:LanguageClient_serverCommands = {
@@ -123,4 +128,4 @@ let g:LanguageClient_serverCommands = {
 
 :nmap ,x :CocCommand explorer<CR>
 
-let g:coc_global_extensions = ['coc-conjure']
+let g:coc_global_extensions = ['coc-conjure', 'coc-solargraph']
