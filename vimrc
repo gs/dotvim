@@ -37,7 +37,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-rake'
     Plug 'vim-ruby/vim-ruby'
     Plug 'jceb/vim-orgmode'
+    Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
+
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 syntax enable
 tnoremap <Esc> <C-\><C-n>
