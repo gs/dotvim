@@ -31,13 +31,15 @@ call plug#begin('~/.vim/plugged')
     Plug 'justinmk/vim-sneak'
     Plug 'lilydjwg/colorizer'
     Plug 'clojure-vim/async-clj-omni'
-    Plug 'Olical/conjure', {'tag': 'v4.0.1'}
+    Plug 'Olical/conjure', {'tag': 'v4.1.0'}
     Plug 'bakpakin/fennel.vim'
     Plug 'tpope/vim-rails'
     Plug 'tpope/vim-rake'
     Plug 'vim-ruby/vim-ruby'
     Plug 'jceb/vim-orgmode'
     Plug 'christoomey/vim-tmux-navigator'
+    Plug 'honza/vim-snippets'
+    Plug 'tellijo/vim-react-native-snippets'
 call plug#end()
 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -111,7 +113,7 @@ hi PmenuSel ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#313343 gui=NONE
 
 "" Install coc-vim plugins
 function Cocplugins()
-  :CocInstall coc-snippets coc-tsserver coc-prettier coc-eslint coc-tslint coc-css coc-lists coc-highlight coc-json coc-yaml coc-conjure
+  :CocInstall coc-snippets coc-tsserver coc-prettier coc-eslint coc-tslint coc-css coc-lists coc-highlight coc-json coc-yaml coc-conjure coc-solargraph
 endfunction
 
 command! Cocplugininstall :call Cocplugins()
