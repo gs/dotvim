@@ -31,7 +31,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'justinmk/vim-sneak'
     Plug 'lilydjwg/colorizer'
     Plug 'clojure-vim/async-clj-omni'
-    Plug 'Olical/conjure', {'tag': 'v4.1.0'}
+    Plug 'Olical/conjure', {'tag': 'v4.3.0'}
     Plug 'bakpakin/fennel.vim'
     Plug 'tpope/vim-rails'
     Plug 'tpope/vim-rake'
