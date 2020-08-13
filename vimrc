@@ -24,14 +24,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'eraserhd/parinfer-rust', {'do':
         \  'cargo build --release'}
     Plug 'rakr/vim-one'
-    Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+    "Plug 'autozimu/LanguageClient-neovim', {
+    "\ 'branch': 'next',
+    "\ 'do': 'bash install.sh',
+    "\ }
     Plug 'justinmk/vim-sneak'
     Plug 'lilydjwg/colorizer'
     Plug 'clojure-vim/async-clj-omni'
-    Plug 'Olical/conjure', {'tag': 'v4.3.0'}
+    Plug 'Olical/conjure', {'tag': 'v4.3.1'}
     Plug 'bakpakin/fennel.vim'
     Plug 'tpope/vim-rails'
     Plug 'tpope/vim-rake'
@@ -113,7 +113,7 @@ hi PmenuSel ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#313343 gui=NONE
 
 "" Install coc-vim plugins
 function Cocplugins()
-  :CocInstall coc-snippets coc-tsserver coc-prettier coc-eslint coc-tslint coc-css coc-lists coc-highlight coc-json coc-yaml coc-conjure coc-solargraph
+  :CocInstall coc-snippets coc-tsserver coc-prettier coc-eslint coc-tslint coc-css coc-lists coc-highlight coc-json coc-yaml coc-conjure coc-solargraph coc-diagnostic
 endfunction
 
 command! Cocplugininstall :call Cocplugins()
@@ -127,7 +127,8 @@ let g:LanguageClient_serverCommands = {
       \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
       \ 'python': ['/usr/local/bin/pyls'],
       \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-      \ }
+      \ 'clojure': ['bash', '-c', 'clojure-lsp'],
+\ }
 
 
 :nmap ,x :CocCommand explorer<CR>
