@@ -24,10 +24,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'eraserhd/parinfer-rust', {'do':
         \  'cargo build --release'}
     Plug 'rakr/vim-one'
-    "Plug 'autozimu/LanguageClient-neovim', {
-    "\ 'branch': 'next',
-    "\ 'do': 'bash install.sh',
-    "\ }
+    Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
     Plug 'justinmk/vim-sneak'
     Plug 'lilydjwg/colorizer'
     Plug 'clojure-vim/async-clj-omni'
@@ -67,7 +67,6 @@ set scrolljump=1          " scroll 1 line at a time
 set scrolloff=5           " start scrolling 5 lines before bottom of pane
 set shiftwidth=2          " shift lines by 2 characters
 set smartcase             " only use case sensitive search when uppercase
-let &shell="/usr/local/bin/bash -l"
 
 " My functions
 command! -bang -nargs=* Find
@@ -94,7 +93,7 @@ map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 "" expand current path in split
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 "" find word under cursor
-map ,r <esc>yiw\|:Ag <c-r>"
+map ,r <esc>yiw\|:Rg <c-r>"
 map ,s <esc>:Find 
 "" FZF files
 map ,f <esc>:Files<cr>
@@ -134,3 +133,13 @@ let g:LanguageClient_serverCommands = {
 :nmap ,x :CocCommand explorer<CR>
 
 let g:coc_global_extensions = ['coc-conjure', 'coc-solargraph']
+
+" Show line number
+set nu
+" Use relative number
+set relativenumber
+" Use local path (:find filename)
+set path=*/**
+" Example configuration
+nmap <Leader>bj <Plug>(coc-bookmark-next)
+nmap <Leader>bk <Plug>(coc-bookmark-prev)

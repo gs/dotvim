@@ -113,9 +113,9 @@ let g:coc_snippet_prev = '<c-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-nmap <silent> [l <Plug>(coc-diagnostic-prev)
-nmap <silent> ]l <Plug>(coc-diagnostic-next)
+nmap <silent> ,E :CocDiagnostics<cr>
+nmap <silent> [e <Plug>(coc-diagnostic-prev)
+nmap <silent> ]e <Plug>(coc-diagnostic-next)
 nmap <silent> [k :CocPrev<cr>
 nmap <silent> ]k :CocNext<cr>
 nnoremap <silent> K :call <SID>show_documentation()<CR>

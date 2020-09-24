@@ -14,7 +14,10 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
+//    "python"
   ],
+  "python.formatting.provider": "black",
+  "coc.preferences.formatOnType": true,
   "suggest.snippetIndicator": "🍦",
   "diagnostic-languageserver.linters": {
     "clj_kondo_lint": {
