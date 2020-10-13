@@ -31,7 +31,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'justinmk/vim-sneak'
     Plug 'lilydjwg/colorizer'
     Plug 'clojure-vim/async-clj-omni'
-    Plug 'Olical/conjure', {'tag': 'v4.3.1'}
+    Plug 'Olical/conjure', {'tag': 'v4.6.0'}
     Plug 'bakpakin/fennel.vim'
     Plug 'tpope/vim-rails'
     Plug 'tpope/vim-rake'
@@ -40,6 +40,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'honza/vim-snippets'
     Plug 'tellijo/vim-react-native-snippets'
+    Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -105,8 +106,8 @@ map ,b <esc>:Buffers<cr>
 map ,t <esc>:BTags<cr>
 "" all tags
 map ,T <esc>:Tags<cr>
-colorscheme muon
-"colorscheme one
+"colorscheme muon
+colorscheme one
 hi Pmenu ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi PmenuSel ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#313343 gui=NONE
 
