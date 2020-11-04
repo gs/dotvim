@@ -36,6 +36,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-salve'
     Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-surround'
+    Plug 'gs/muon-dark'
     Plug 'eraserhd/parinfer-rust', {'do':
         \  'cargo build --release'}
 "Clojure
@@ -113,10 +114,7 @@ map ,b <esc>:Buffers<cr>
 map ,t <esc>:BTags<cr>
 "" all tags
 map ,T <esc>:Tags<cr>
-"colorscheme muon
-colorscheme tir_black
-hi Pmenu ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi PmenuSel ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#313343 gui=NONE
+colorscheme muon-dark
 
 "" Install coc-vim plugins
 function Cocplugins()
