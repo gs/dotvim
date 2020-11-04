@@ -77,12 +77,6 @@ set scrolloff=5           " start scrolling 5 lines before bottom of pane
 set shiftwidth=2          " shift lines by 2 characters
 set smartcase             " only use case sensitive search when uppercase
 
-" My functions
-"command! -bang -nargs=* Find
-"  \ call fzf#vim#grep(
-"  \   'git grep --line-number '.shellescape(<q-args>), 0,
-"  \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
-"
 function! Today()
     :pu='* ' . strftime('%y/%m/%d')
 endfunction
@@ -124,17 +118,6 @@ endfunction
 command! Cocplugininstall :call Cocplugins()
 let maplocalleader = "\\"
 "clojure mappings: \ee (execute current) \er (executer outside)
-
-
-"let g:LanguageClient_serverCommands = {
-"      \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-"      \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-"      \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-"      \ 'python': ['/usr/local/bin/pyls'],
-"      \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-"      \ 'clojure': ['bash', '-c', 'clojure-lsp'],
-"\ }
-"
 
 :nmap ,x :CocCommand explorer<CR>
 
