@@ -110,8 +110,7 @@ map ,cl <esc>:Clap blines<cr>
 
 "" Install coc-vim plugins
 function Cocplugins()
-  :CocInstall coc-snippets coc-tsserver coc-prettier coc-eslint coc-tslint coc-css coc-lists coc-highlight \
-  coc-json coc-yaml coc-conjure coc-solargraph coc-diagnostic coc-tabnine
+  :CocInstall coc-snippets coc-tsserver coc-prettier coc-eslint coc-tslint coc-css coc-lists coc-highlight coc-json coc-yaml coc-conjure coc-solargraph coc-diagnostic coc-tabnine coc-python
 endfunction
 
 command! Cocplugininstall :call Cocplugins()
