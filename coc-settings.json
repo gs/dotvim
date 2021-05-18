@@ -2,6 +2,7 @@
   "prettier.requireConfig": true,
   "tslint.enable": true,
   "tslint.autoFixOnSave": true,
+  "coc.source.iced.enable": true,
 
   "coc.preferences.formatOnSaveFiletypes": [
     "css",

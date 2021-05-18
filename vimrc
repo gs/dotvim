@@ -9,11 +9,13 @@ call plug#begin('~/.vim/plugged')
 "Completion
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Files
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-    Plug 'lvht/fzf-mru'
-    Plug 'junegunn/fzf.vim'
+    Plug 'liuchengxu/vim-clap'
 "Git
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-salve.git'
+    Plug 'tpope/vim-projectionist'
+    Plug 'tpope/vim-dispatch'
+    Plug 'tpope/vim-fireplace'
 
 "Ruby 
     Plug 'tpope/vim-rails'
@@ -41,14 +43,16 @@ call plug#begin('~/.vim/plugged')
 
 "JSX
     Plug 'chemzqm/vim-jsx-improve'
+
+"Syntax check
     Plug 'w0rp/ale'
 call plug#end()
 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 syntax enable
 tnoremap <Esc> <C-\><C-n>
-let g:python_host_prog = '/usr/local/bin/python2'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
 set autoindent
 set autoread              " auto read files changed outside vim
 set clipboard=unnamed     " use the system clipboard
@@ -87,34 +91,33 @@ map ,D :bp\|bd#<cr>
 "" expand current path
 map ,E :e <C-R>=expand("%:p:h") . "/" <CR>
 "" expand current path in split
-map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
+map ,S :split <C-R>=expand("%:p:h") . "/" <CR>
 "" find word under cursor
-"map ,r <esc>yiw\|:Rg <c-r>"
 map ,r <esc>yiw\|:CocSearch <c-r>"
-"" FZF files
-map ,f <esc>:Files<cr>
-"" FzfMru (most recently used files)
-map ,F <esc>:FZFMru<cr>
+
+" Run Clap
+map ,C <esc>:Clap<cr>
+
+" list files
+map ,f <esc>:Clap files<cr>
 "" currently opened buffers
-map ,b <esc>:Buffers<cr>
-"" tags from current buffer
-map ,T <esc>:BTags<cr>
+map ,cb <esc>:Clap buffers<cr>
+
 "" all tags
-map ,Tt <esc>:Tags<cr>
-"colorscheme muon-dark
-colorscheme tir_black
+map ,ct <esc>:Tags<cr>
+
+map ,cl <esc>:Clap blines<cr>
 
 "" Install coc-vim plugins
 function Cocplugins()
-  :CocInstall coc-snippets coc-tsserver coc-prettier coc-eslint coc-tslint coc-css coc-lists coc-highlight coc-json coc-yaml coc-conjure coc-solargraph coc-diagnostic
+  :CocInstall coc-snippets coc-tsserver coc-prettier coc-eslint coc-tslint coc-css coc-lists coc-highlight \
+  coc-json coc-yaml coc-conjure coc-solargraph coc-diagnostic coc-tabnine
 endfunction
 
 command! Cocplugininstall :call Cocplugins()
 let maplocalleader = "\\"
 let mapleader = ","
 "clojure mappings: \ee (execute current) \er (executer outside)
-
-:nmap ,x :CocCommand explorer<CR>
 
 let g:coc_global_extensions = ['coc-conjure', 'coc-solargraph']
 
@@ -131,6 +134,10 @@ set omnifunc=syntaxcomplete#Complete
 autocmd! GUIEnter * set vb t_vb=
 let g:iced_enable_default_key_mappings = v:true " Default keybindings
 let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
+"Search
 nnoremap <leader><leader> :CocSearch 
 set termguicolors
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+colorscheme tir_black
+let g:clap_layout = { 'relative': 'editor' }
+let g:clap_theme = 'tir_black'
