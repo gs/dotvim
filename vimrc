@@ -15,10 +15,6 @@ call plug#begin('~/.vim/plugged')
 "Git
     Plug 'tpope/vim-fugitive'
 
-"    Plug 'autozimu/LanguageClient-neovim', {
-"    \ 'branch': 'next',
-"    \ 'do': 'bash install.sh',
-"    \ }
 "Ruby 
     Plug 'tpope/vim-rails'
     Plug 'tpope/vim-rake'
@@ -28,9 +24,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'kien/rainbow_parentheses.vim'
     Plug 'honza/vim-snippets'
-    Plug 'christoomey/vim-tmux-navigator'
-    Plug 'jceb/vim-orgmode'
-    Plug 'rakr/vim-one'
     Plug 'tpope/vim-dispatch'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-salve'
@@ -38,17 +31,17 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'gs/muon-dark'
     Plug 'eraserhd/parinfer-rust', {'do':
-        \  'cargo build --release'}
+          \  'cargo build --release'}
 "Clojure
-    Plug 'Olical/conjure', {'tag': 'v4.6.0'}
-    Plug 'clojure-vim/vim-cider'
     Plug 'guns/vim-clojure-static'
     Plug 'guns/vim-clojure-highlight'
-    Plug 'tpope/vim-fireplace'
-    Plug 'clojure-vim/async-clj-omni'
+    Plug 'guns/vim-sexp',    {'for': 'clojure'}
+    Plug 'liquidz/vim-iced', {'for': 'clojure'}
+    Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}
 
 "JSX
     Plug 'chemzqm/vim-jsx-improve'
+    Plug 'w0rp/ale'
 call plug#end()
 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -83,7 +76,7 @@ endfunction
 command! Today :call Today()
 
 " My mappings
-map ,!! :Dispatch
+map ,! :Dispatch
 "" use `;` as `:`
 nnoremap \ ;
 nnoremap ; :
@@ -92,12 +85,12 @@ map k gk
 "" Kill current buffer
 map ,D :bp\|bd#<cr>
 "" expand current path
-map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+map ,E :e <C-R>=expand("%:p:h") . "/" <CR>
 "" expand current path in split
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 "" find word under cursor
-map ,r <esc>yiw\|:Rg <c-r>"
-map ,s <esc>:Find 
+"map ,r <esc>yiw\|:Rg <c-r>"
+map ,r <esc>yiw\|:CocSearch <c-r>"
 "" FZF files
 map ,f <esc>:Files<cr>
 "" FzfMru (most recently used files)
@@ -105,10 +98,11 @@ map ,F <esc>:FZFMru<cr>
 "" currently opened buffers
 map ,b <esc>:Buffers<cr>
 "" tags from current buffer
-map ,t <esc>:BTags<cr>
+map ,T <esc>:BTags<cr>
 "" all tags
-map ,T <esc>:Tags<cr>
-colorscheme muon-dark
+map ,Tt <esc>:Tags<cr>
+"colorscheme muon-dark
+colorscheme tir_black
 
 "" Install coc-vim plugins
 function Cocplugins()
@@ -117,6 +111,7 @@ endfunction
 
 command! Cocplugininstall :call Cocplugins()
 let maplocalleader = "\\"
+let mapleader = ","
 "clojure mappings: \ee (execute current) \er (executer outside)
 
 :nmap ,x :CocCommand explorer<CR>
@@ -132,3 +127,10 @@ set path=*/**
 " Example configuration
 nmap <Leader>bj <Plug>(coc-bookmark-next)
 nmap <Leader>bk <Plug>(coc-bookmark-prev)
+set omnifunc=syntaxcomplete#Complete
+autocmd! GUIEnter * set vb t_vb=
+let g:iced_enable_default_key_mappings = v:true " Default keybindings
+let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
+nnoremap <leader><leader> :CocSearch 
+set termguicolors
+set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)

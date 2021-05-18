@@ -1,11 +1,8 @@
 {
-  // Require .prettierrc
   "prettier.requireConfig": true,
-  // Tslint on save
   "tslint.enable": true,
   "tslint.autoFixOnSave": true,
 
-  // Run prettier (and others)
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown",
@@ -14,42 +11,10 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
-//    "python"
   ],
   "python.formatting.provider": "black",
+  "coc.source.iced.enable": true,
   "coc.preferences.formatOnType": true,
   "suggest.snippetIndicator": "🍦",
-  "diagnostic-languageserver.linters": {
-    "clj_kondo_lint": {
-      "command": "clj-kondo",
-      "debounce": 100,
-      "args": [ "--lint", "%filepath"],
-      "offsetLine": 0,
-      "offsetColumn": 0,
-      "sourceName": "clj-kondo",
-      "formatLines": 1,
-      "formatPattern": [
-        "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$",
-        {
-          "line": 1,
-          "column": 2,
-          "message": 4,
-          "security": 3
-        }
-      ]
-    }
-  },
-  "diagnostic-languageserver.filetypes": {"clojure":"clj_kondo_lint"},
-  "languageserver": {
-    "clojure-lsp": {
-      "command": "bash",
-      "args": ["-c", "cd /Users/sfistak/Code/projects/timerack/ && lein run"],
-      "filetypes": ["clojure"],
-      "rootPatterns": ["project.clj"],
-      "additionalSchemes": ["jar", "zipfile"],
-      "trace.server": "verbose",
-      "initializationOptions": {
-      }
-    }
-  }
+  "coc.preferences.extensionUpdateCheck": "daily"
 }
