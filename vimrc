@@ -6,46 +6,29 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-"Completion
+"Completion and more
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Files
     Plug 'liuchengxu/vim-clap'
 "Git
     Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-salve.git'
-    Plug 'tpope/vim-projectionist'
-    Plug 'tpope/vim-dispatch'
-    Plug 'tpope/vim-fireplace'
-
-"Ruby 
+"Ruby & Rails
     Plug 'tpope/vim-rails'
     Plug 'tpope/vim-rake'
     Plug 'vim-ruby/vim-ruby'
-
 "General
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'kien/rainbow_parentheses.vim'
     Plug 'honza/vim-snippets'
-    Plug 'tpope/vim-dispatch'
     Plug 'tpope/vim-repeat'
-    Plug 'tpope/vim-salve'
-    Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-surround'
-    Plug 'gs/muon-dark'
+"Clojure
     Plug 'eraserhd/parinfer-rust', {'do':
           \  'cargo build --release'}
-"Clojure
-    Plug 'guns/vim-clojure-static'
-    Plug 'guns/vim-clojure-highlight'
     Plug 'guns/vim-sexp',    {'for': 'clojure'}
     Plug 'liquidz/vim-iced', {'for': 'clojure'}
     Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}
 
 "JSX
     Plug 'chemzqm/vim-jsx-improve'
-
-"Syntax check
-    Plug 'w0rp/ale'
 call plug#end()
 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
