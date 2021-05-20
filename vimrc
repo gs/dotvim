@@ -29,13 +29,14 @@ call plug#begin('~/.vim/plugged')
 
 "JSX
     Plug 'chemzqm/vim-jsx-improve'
+
 call plug#end()
 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 syntax enable
 tnoremap <Esc> <C-\><C-n>
 let g:python_host_prog = '/usr/bin/python2'
-let g:python3_host_prog = '/usr/bin/python3'
+
 set autoindent
 set autoread              " auto read files changed outside vim
 set clipboard=unnamed     " use the system clipboard
@@ -93,7 +94,7 @@ map ,cl <esc>:Clap blines<cr>
 
 "" Install coc-vim plugins
 function Cocplugins()
-  :CocInstall coc-snippets coc-tsserver coc-prettier coc-eslint coc-tslint coc-css coc-lists coc-highlight coc-json coc-yaml coc-conjure coc-solargraph coc-diagnostic coc-tabnine coc-python
+  :CocInstall coc-snippets coc-tsserver coc-prettier coc-eslint coc-tslint coc-css coc-lists coc-highlight coc-json coc-yaml coc-conjure coc-solargraph coc-diagnostic coc-tabnine coc-pyright
 endfunction
 
 command! Cocplugininstall :call Cocplugins()
