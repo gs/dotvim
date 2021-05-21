@@ -35,7 +35,8 @@ call plug#end()
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 syntax enable
 tnoremap <Esc> <C-\><C-n>
-let g:python_host_prog = '/usr/bin/python2'
+let g:python_host_prog = expand(systemlist('which python')[0])
+let g:python3_host_prog = expand(systemlist('which python3')[0])
 
 set autoindent
 set autoread              " auto read files changed outside vim
