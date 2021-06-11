@@ -3,7 +3,6 @@
   "tslint.enable": true,
   "tslint.autoFixOnSave": true,
   "coc.source.iced.enable": true,
-
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown",
@@ -14,7 +13,6 @@
     "typescriptreact"
   ],
   "python.formatting.provider": "black",
-  "coc.source.iced.enable": true,
   "coc.preferences.formatOnType": true,
   "suggest.snippetIndicator": "🍦",
   "coc.preferences.extensionUpdateCheck": "daily"

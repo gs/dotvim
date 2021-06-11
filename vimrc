@@ -12,6 +12,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'liuchengxu/vim-clap'
 "Git
     Plug 'tpope/vim-fugitive'
+"Test Runners
+    Plug 'vim-test/vim-test'
+    Plug 'alfredodeza/pytest.vim'
 "Ruby & Rails
     Plug 'tpope/vim-rails'
     Plug 'tpope/vim-rake'
@@ -29,11 +32,10 @@ call plug#begin('~/.vim/plugged')
 
 "JSX
     Plug 'chemzqm/vim-jsx-improve'
-
 call plug#end()
 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-syntax enable
+syntax on
 tnoremap <Esc> <C-\><C-n>
 let g:python_host_prog = expand(systemlist('which python')[0])
 let g:python3_host_prog = expand(systemlist('which python3')[0])
@@ -41,14 +43,14 @@ let g:python3_host_prog = expand(systemlist('which python3')[0])
 set autoindent
 set autoread              " auto read files changed outside vim
 set clipboard=unnamed     " use the system clipboard
-"set colorcolumn=80        " highlight max length column
+"set colorcolumn=90        " highlight max length column
 set encoding=utf-8        " set encoding
 set expandtab             " tabs to spaces
 set formatoptions+=j
 set hidden                " allow background buffers
 set hlsearch              " highlight the search query
 set ignorecase            " case insensitive searching
-set laststatus=2          " always show airline
+set laststatus=3          " always show airline
 set lazyredraw            " don't redraw during macro execution
 set mouse=a               " enable the mouse
 set nobackup              " no backup files
@@ -122,6 +124,9 @@ let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
 nnoremap <leader><leader> :CocSearch 
 set termguicolors
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
-colorscheme tir_black
+"colorscheme tir_black
+colorscheme green
 let g:clap_layout = { 'relative': 'editor' }
 let g:clap_theme = 'tir_black'
+let g:clap_popup_border = 'nil'
+hi normal guifg=Green
