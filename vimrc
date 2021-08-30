@@ -8,8 +8,10 @@ endif
 call plug#begin('~/.vim/plugged')
 "Completion and more
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"    Plug 'liuchengxu/vista.vim'
 "Files
-    Plug 'liuchengxu/vim-clap'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
 "Git
     Plug 'tpope/vim-fugitive'
 "Test Runners
@@ -32,6 +34,7 @@ call plug#begin('~/.vim/plugged')
 
 "JSX
     Plug 'chemzqm/vim-jsx-improve'
+    Plug 'projekt0n/github-nvim-theme'
 call plug#end()
 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -50,7 +53,7 @@ set formatoptions+=j
 set hidden                " allow background buffers
 set hlsearch              " highlight the search query
 set ignorecase            " case insensitive searching
-set laststatus=3          " always show airline
+set laststatus=2          " always show airline
 set lazyredraw            " don't redraw during macro execution
 set mouse=a               " enable the mouse
 set nobackup              " no backup files
@@ -80,20 +83,21 @@ map ,E :e <C-R>=expand("%:p:h") . "/" <CR>
 "" expand current path in split
 map ,S :split <C-R>=expand("%:p:h") . "/" <CR>
 "" find word under cursor
-map ,r <esc>yiw\|:CocSearch <c-r>"
-
-" Run Clap
-map ,C <esc>:Clap<cr>
+map ,r <esc>yiw\|:Rg <c-r>"
 
 " list files
-map ,f <esc>:Clap files<cr>
+map ,f <esc>:Files<cr>
 "" currently opened buffers
-map ,cb <esc>:Clap buffers<cr>
-
+map ,b <esc>:Buffers<cr>
+map ,bb <esc>:Buffers<cr>
+map ,bt <esc>:BTags<cr>
 "" all tags
-map ,ct <esc>:Tags<cr>
+"map ,,t <esc>:Tags<cr>
 
-map ,cl <esc>:Clap blines<cr>
+map ,bl <esc>:BLines<cr>
+map ,L <esc>:Lines<cr>
+
+map ,/ <esc>:Rg <cr>
 
 "" Install coc-vim plugins
 function Cocplugins()
@@ -121,12 +125,9 @@ autocmd! GUIEnter * set vb t_vb=
 let g:iced_enable_default_key_mappings = v:true " Default keybindings
 let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
 "Search
-nnoremap <leader><leader> :CocSearch 
+nnoremap ,,s :CocSearch 
 set termguicolors
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
-"colorscheme tir_black
-colorscheme green
-let g:clap_layout = { 'relative': 'editor' }
-let g:clap_theme = 'tir_black'
-let g:clap_popup_border = 'nil'
 hi normal guifg=Green
+let g:coc_node_path = "~/.linuxbrew/bin/node"
+lua require('github-theme').setup()
