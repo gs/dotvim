@@ -15,5 +15,7 @@
   "python.formatting.provider": "black",
   "coc.preferences.formatOnType": true,
   "suggest.snippetIndicator": "🍦",
-  "coc.preferences.extensionUpdateCheck": "daily"
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "emmet.includeLanguages": { "eruby": "html"},
+  "solargraph.diagnostics": true
 }

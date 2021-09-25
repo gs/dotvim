@@ -8,7 +8,6 @@ endif
 call plug#begin('~/.vim/plugged')
 "Completion and more
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"    Plug 'liuchengxu/vista.vim'
 "Files
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
@@ -34,7 +33,7 @@ call plug#begin('~/.vim/plugged')
 
 "JSX
     Plug 'chemzqm/vim-jsx-improve'
-    Plug 'projekt0n/github-nvim-theme'
+    Plug 'romgrk/doom-one.vim'
 call plug#end()
 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -128,6 +127,4 @@ let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
 nnoremap ,,s :CocSearch 
 set termguicolors
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
-hi normal guifg=Green
-let g:coc_node_path = "~/.linuxbrew/bin/node"
-lua require('github-theme').setup()
+colo doom-one
