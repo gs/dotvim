@@ -11,6 +11,8 @@ call plug#begin('~/.vim/plugged')
 "Files
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'liuchengxu/vim-clap'
+
 "Git
     Plug 'tpope/vim-fugitive'
 "Test Runners
@@ -21,8 +23,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-rake'
     Plug 'vim-ruby/vim-ruby'
 "General
-    Plug 'honza/vim-snippets'
-    Plug 'tpope/vim-repeat'
+   Plug 'honza/vim-snippets'
+   Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
 "Clojure
     Plug 'eraserhd/parinfer-rust', {'do':
@@ -98,22 +100,17 @@ map ,L <esc>:Lines<cr>
 
 map ,/ <esc>:Rg <cr>
 
-"" Install coc-vim plugins
-function Cocplugins()
-  :CocInstall coc-snippets coc-tsserver coc-prettier coc-eslint coc-tslint coc-css coc-lists coc-highlight coc-json coc-yaml coc-conjure coc-solargraph coc-diagnostic coc-tabnine coc-pyright coc-html
-endfunction
-
-command! Cocplugininstall :call Cocplugins()
 let maplocalleader = "\\"
 let mapleader = ","
 "clojure mappings: \ee (execute current) \er (executer outside)
 
-let g:coc_global_extensions = ['coc-conjure', 'coc-solargraph']
+"Coc extensions
+let g:coc_global_extensions = ['coc-conjure', 'coc-solargraph', 'coc-snippets', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-highlight', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-tabnine', 'coc-pyright', 'coc-html']
 
 " Show line number
-"set nu
+set nu
 " Use relative number
-"set relativenumber
+set relativenumber
 " Use local path (:find filename)
 set path=*/**
 " Example configuration
@@ -124,7 +121,10 @@ autocmd! GUIEnter * set vb t_vb=
 let g:iced_enable_default_key_mappings = v:true " Default keybindings
 let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
 "Search
-nnoremap ,,s :CocSearch 
 set termguicolors
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+set completeopt=menu,menuone,noselect
 colo doom-one
+"let g:coc_node_path = "~/.linuxbrew/bin/node"
+"lua require('github-theme').setup()
+"let g:molokai_original = 1
