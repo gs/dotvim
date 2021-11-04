@@ -6,13 +6,11 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-"Completion and more
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'w0rp/ale'
+    Plug 'ervandew/supertab'
 "Files
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'liuchengxu/vim-clap'
-
 "Git
     Plug 'tpope/vim-fugitive'
 "Test Runners
@@ -25,7 +23,7 @@ call plug#begin('~/.vim/plugged')
 "General
    Plug 'honza/vim-snippets'
    Plug 'tpope/vim-repeat'
-    Plug 'tpope/vim-surround'
+   Plug 'tpope/vim-surround'
 "Clojure
     Plug 'eraserhd/parinfer-rust', {'do':
           \  'cargo build --release'}
@@ -36,9 +34,9 @@ call plug#begin('~/.vim/plugged')
 "JSX
     Plug 'chemzqm/vim-jsx-improve'
     Plug 'romgrk/doom-one.vim'
+    Plug 'flazz/vim-colorschemes'
 call plug#end()
 
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 syntax on
 tnoremap <Esc> <C-\><C-n>
 let g:python_host_prog = expand(systemlist('which python')[0])
@@ -90,12 +88,9 @@ map ,r <esc>yiw\|:Rg <c-r>"
 map ,f <esc>:Files<cr>
 "" currently opened buffers
 map ,b <esc>:Buffers<cr>
-map ,bb <esc>:Buffers<cr>
-map ,bt <esc>:BTags<cr>
-"" all tags
-"map ,,t <esc>:Tags<cr>
+map ,t <esc>:BTags<cr>
 
-map ,bl <esc>:BLines<cr>
+map ,l <esc>:BLines<cr>
 map ,L <esc>:Lines<cr>
 
 map ,/ <esc>:Rg <cr>
@@ -104,27 +99,20 @@ let maplocalleader = "\\"
 let mapleader = ","
 "clojure mappings: \ee (execute current) \er (executer outside)
 
-"Coc extensions
-let g:coc_global_extensions = ['coc-conjure', 'coc-solargraph', 'coc-snippets', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-highlight', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-tabnine', 'coc-pyright', 'coc-html']
-
 " Show line number
 set nu
 " Use relative number
 set relativenumber
 " Use local path (:find filename)
 set path=*/**
-" Example configuration
-nmap <Leader>bj <Plug>(coc-bookmark-next)
-nmap <Leader>bk <Plug>(coc-bookmark-prev)
-set omnifunc=syntaxcomplete#Complete
-autocmd! GUIEnter * set vb t_vb=
-let g:iced_enable_default_key_mappings = v:true " Default keybindings
 let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
 "Search
-set termguicolors
+"set termguicolors
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
-set completeopt=menu,menuone,noselect
-colo doom-one
+"set completeopt=menu,menuone,noselect
+"colo doom-one
+colo vibrantink
 "let g:coc_node_path = "~/.linuxbrew/bin/node"
 "lua require('github-theme').setup()
 "let g:molokai_original = 1
+let g:ale_completion_enabled = 1
