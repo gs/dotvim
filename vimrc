@@ -16,24 +16,12 @@ call plug#begin('~/.vim/plugged')
 "Test Runners
     Plug 'vim-test/vim-test'
     Plug 'alfredodeza/pytest.vim'
-"Ruby & Rails
-    Plug 'tpope/vim-rails'
-    Plug 'tpope/vim-rake'
-    Plug 'vim-ruby/vim-ruby'
 "General
    Plug 'honza/vim-snippets'
    Plug 'tpope/vim-repeat'
    Plug 'tpope/vim-surround'
-"Clojure
-    Plug 'eraserhd/parinfer-rust', {'do':
-          \  'cargo build --release'}
-    Plug 'guns/vim-sexp',    {'for': 'clojure'}
-    Plug 'liquidz/vim-iced', {'for': 'clojure'}
-    Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}
-
 "JSX
     Plug 'chemzqm/vim-jsx-improve'
-    Plug 'romgrk/doom-one.vim'
     Plug 'flazz/vim-colorschemes'
 call plug#end()
 
@@ -51,6 +39,7 @@ set expandtab             " tabs to spaces
 set formatoptions+=j
 set hidden                " allow background buffers
 set hlsearch              " highlight the search query
+set incsearch             " inc search (highlight and search)
 set ignorecase            " case insensitive searching
 set laststatus=2          " always show airline
 set lazyredraw            " don't redraw during macro execution
@@ -97,7 +86,6 @@ map ,/ <esc>:Rg <cr>
 
 let maplocalleader = "\\"
 let mapleader = ","
-"clojure mappings: \ee (execute current) \er (executer outside)
 
 " Show line number
 set nu
@@ -105,14 +93,7 @@ set nu
 set relativenumber
 " Use local path (:find filename)
 set path=*/**
-let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
-"Search
 "set termguicolors
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
-"set completeopt=menu,menuone,noselect
-"colo doom-one
+set completeopt=menu,menuone,noselect
 colo vibrantink
-"let g:coc_node_path = "~/.linuxbrew/bin/node"
-"lua require('github-theme').setup()
-"let g:molokai_original = 1
-let g:ale_completion_enabled = 1
