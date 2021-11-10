@@ -15,7 +15,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
 "Test Runners
     Plug 'vim-test/vim-test'
-    Plug 'alfredodeza/pytest.vim'
 "General
    Plug 'honza/vim-snippets'
    Plug 'tpope/vim-repeat'
@@ -97,3 +96,4 @@ set path=*/**
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 set completeopt=menu,menuone,noselect
 colo vibrantink
+let python_highlight_all=1
