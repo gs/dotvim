@@ -21,7 +21,7 @@ call plug#begin('~/.vim/plugged')
    Plug 'tpope/vim-surround'
 "JSX
     Plug 'chemzqm/vim-jsx-improve'
-    Plug 'flazz/vim-colorschemes'
+    Plug 'gs/muon-dark'
 call plug#end()
 
 syntax on
@@ -94,6 +94,6 @@ set relativenumber
 set path=*/**
 "set termguicolors
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
-set completeopt=menu,menuone,noselect
-colo vibrantink
+"set completeopt=menu,menuone,noselect
+colo muon-dark
 let python_highlight_all=1
