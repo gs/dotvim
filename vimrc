@@ -11,13 +11,10 @@ call plug#begin('~/.vim/plugged')
 "Files
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'liuchengxu/vim-clap'
-
 "Git
     Plug 'tpope/vim-fugitive'
 "Test Runners
     Plug 'vim-test/vim-test'
-    Plug 'alfredodeza/pytest.vim'
 "Ruby & Rails
     Plug 'tpope/vim-rails'
     Plug 'tpope/vim-rake'
@@ -35,7 +32,7 @@ call plug#begin('~/.vim/plugged')
 
 "JSX
     Plug 'chemzqm/vim-jsx-improve'
-    Plug 'romgrk/doom-one.vim'
+    Plug 'gs/muon-dark'
 call plug#end()
 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -53,6 +50,7 @@ set expandtab             " tabs to spaces
 set formatoptions+=j
 set hidden                " allow background buffers
 set hlsearch              " highlight the search query
+set incsearch             " highlight matching strings
 set ignorecase            " case insensitive searching
 set laststatus=2          " always show airline
 set lazyredraw            " don't redraw during macro execution
@@ -92,9 +90,6 @@ map ,f <esc>:Files<cr>
 map ,b <esc>:Buffers<cr>
 map ,bb <esc>:Buffers<cr>
 map ,bt <esc>:BTags<cr>
-"" all tags
-"map ,,t <esc>:Tags<cr>
-
 map ,bl <esc>:BLines<cr>
 map ,L <esc>:Lines<cr>
 
@@ -103,8 +98,6 @@ map ,/ <esc>:Rg <cr>
 let maplocalleader = "\\"
 let mapleader = ","
 "clojure mappings: \ee (execute current) \er (executer outside)
-
-"Coc extensions
 let g:coc_global_extensions = ['coc-conjure', 'coc-solargraph', 'coc-snippets', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-highlight', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-tabnine', 'coc-pyright', 'coc-html']
 
 " Show line number
@@ -124,7 +117,4 @@ let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
 set termguicolors
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 set completeopt=menu,menuone,noselect
-colo doom-one
-"let g:coc_node_path = "~/.linuxbrew/bin/node"
-"lua require('github-theme').setup()
-"let g:molokai_original = 1
+colo muon-dark
