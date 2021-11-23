@@ -6,7 +6,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+" Syntax issues highlight
     Plug 'w0rp/ale'
+" Tab to complete
     Plug 'ervandew/supertab'
 "Files
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -21,18 +23,20 @@ call plug#begin('~/.vim/plugged')
    Plug 'tpope/vim-surround'
 "JSX
     Plug 'chemzqm/vim-jsx-improve'
+"Theme
     Plug 'gs/muon-dark'
 call plug#end()
 
 syntax on
 tnoremap <Esc> <C-\><C-n>
+" Dynamically search for python "
 let g:python_host_prog = expand(systemlist('which python')[0])
 let g:python3_host_prog = expand(systemlist('which python3')[0])
 
-set autoindent
+set autoindent            " auto indentation
 set autoread              " auto read files changed outside vim
 set clipboard=unnamed     " use the system clipboard
-"set colorcolumn=90        " highlight max length column
+set colorcolumn=90        " highlight max length column
 set encoding=utf-8        " set encoding
 set expandtab             " tabs to spaces
 set formatoptions+=j
@@ -51,16 +55,23 @@ set scrolloff=5           " start scrolling 5 lines before bottom of pane
 set shiftwidth=2          " shift lines by 2 characters
 set smartcase             " only use case sensitive search when uppercase
 
+
+
+" Add a current date to the buffer (used for ORG and my docs) "
 function! Today()
     :pu='* ' . strftime('%y/%m/%d')
 endfunction
 command! Today :call Today()
 
 " My mappings
+" Async command execution 
 map ,! :Dispatch
-"" use `;` as `:`
+
+" use `;` as `:`
 nnoremap \ ;
 nnoremap ; :
+
+" Better navigation
 map j gj
 map k gk
 "" Kill current buffer
@@ -71,19 +82,22 @@ map ,E :e <C-R>=expand("%:p:h") . "/" <CR>
 map ,S :split <C-R>=expand("%:p:h") . "/" <CR>
 "" find word under cursor
 map ,r <esc>yiw\|:Rg <c-r>"
-
 " list files
 map ,f <esc>:Files<cr>
 "" currently opened buffers
 map ,b <esc>:Buffers<cr>
+" symbols in buffers "
 map ,t <esc>:BTags<cr>
-
+" Lines in buffer "
 map ,l <esc>:BLines<cr>
+" Lines in all opened buffers "
 map ,L <esc>:Lines<cr>
-
+" Global search "
 map ,/ <esc>:Rg <cr>
 
+" Map local leader to \\
 let maplocalleader = "\\"
+" Map leader to ,
 let mapleader = ","
 
 " Show line number
@@ -92,8 +106,9 @@ set nu
 set relativenumber
 " Use local path (:find filename)
 set path=*/**
-"set termguicolors
+" Set status line
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
-"set completeopt=menu,menuone,noselect
+set complete-=i
+set completeopt=menu,menuone,noselect
 colo muon-dark
 let python_highlight_all=1
