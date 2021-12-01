@@ -56,16 +56,11 @@ set shiftwidth=2          " shift lines by 2 characters
 set smartcase             " only use case sensitive search when uppercase
 
 
-
 " Add a current date to the buffer (used for ORG and my docs) "
 function! Today()
     :pu='* ' . strftime('%y/%m/%d')
 endfunction
 command! Today :call Today()
-
-" My mappings
-" Async command execution 
-map ,! :Dispatch
 
 " use `;` as `:`
 nnoremap \ ;
