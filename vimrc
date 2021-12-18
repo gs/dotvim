@@ -117,3 +117,4 @@ imap <c-l> <space>=><space>
 let g:fzf_layout = { 'down': '~40%' }
 " Map Enter to Run Test file
 map <CR> :TestFile<cr>
+map <leader>p :PromoteToLet<cr>
