@@ -23,8 +23,6 @@ call plug#begin('~/.vim/plugged')
    Plug 'tpope/vim-surround'
 "JSX
     Plug 'chemzqm/vim-jsx-improve'
-"Theme
-    Plug 'gs/muon-dark'
 call plug#end()
 
 syntax on
@@ -35,7 +33,6 @@ let g:python3_host_prog = expand(systemlist('which python3')[0])
 
 set autoindent            " auto indentation
 set autoread              " auto read files changed outside vim
-set clipboard=unnamed     " use the system clipboard
 set colorcolumn=90        " highlight max length column
 set encoding=utf-8        " set encoding
 set expandtab             " tabs to spaces
@@ -62,7 +59,8 @@ function! Today()
 endfunction
 command! Today :call Today()
 
-" use `;` as `:`
+" My mappings
+"" use `;` as `:`
 nnoremap \ ;
 nnoremap ; :
 
@@ -72,29 +70,23 @@ map k gk
 "" Kill current buffer
 map ,D :bp\|bd#<cr>
 "" expand current path
-map ,E :e <C-R>=expand("%:p:h") . "/" <CR>
+map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 "" expand current path in split
-map ,S :split <C-R>=expand("%:p:h") . "/" <CR>
+map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 "" find word under cursor
-map ,r <esc>yiw\|:Rg <c-r>"
+map ,. <esc>yiw\|:Rg <c-r>"
+
+"" Global search
+map ,/ <esc>:Rg <cr>
 " list files
 map ,f <esc>:Files<cr>
 "" currently opened buffers
 map ,b <esc>:Buffers<cr>
-" symbols in buffers "
-map ,t <esc>:BTags<cr>
-" Lines in buffer "
-map ,l <esc>:BLines<cr>
-" Lines in all opened buffers "
-map ,L <esc>:Lines<cr>
-" Global search "
-map ,/ <esc>:Rg <cr>
 
 " Map local leader to \\
 let maplocalleader = "\\"
 " Map leader to ,
 let mapleader = ","
-
 " Show line number
 set nu
 " Use relative number
@@ -105,5 +97,8 @@ set path=*/**
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 set complete-=i
 set completeopt=menu,menuone,noselect
-colo muon-dark
 let python_highlight_all=1
+" Push the FZF results into the bottom
+let g:fzf_layout = { 'down': '~40%' }
+" Map Enter to Run Test file
+map <CR> :TestFile<cr>
