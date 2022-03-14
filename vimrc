@@ -6,35 +6,19 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-    Plug 'w0rp/ale'
-    Plug 'ervandew/supertab'
+   Plug 'ervandew/supertab'
 "Files
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-"Git
-    Plug 'tpope/vim-fugitive'
 "Test Runners
     Plug 'vim-test/vim-test'
-    Plug 'alfredodeza/pytest.vim'
 "Ruby & Rails
     Plug 'tpope/vim-rails'
     Plug 'tpope/vim-rake'
     Plug 'vim-ruby/vim-ruby'
 "General
-   Plug 'honza/vim-snippets'
    Plug 'tpope/vim-repeat'
    Plug 'tpope/vim-surround'
-"Clojure
-    Plug 'eraserhd/parinfer-rust', {'do':
-          \  'cargo build --release'}
-    Plug 'guns/vim-sexp',    {'for': 'clojure'}
-    Plug 'liquidz/vim-iced', {'for': 'clojure'}
-    Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}
-
-"JSX
-    Plug 'chemzqm/vim-jsx-improve'
-    Plug 'romgrk/doom-one.vim'
-    Plug 'flazz/vim-colorschemes'
 call plug#end()
 
 syntax on
@@ -99,10 +83,6 @@ let maplocalleader = "\\"
 let mapleader = ","
 "clojure mappings: \ee (execute current) \er (executer outside)
 
-" Show line number
-set nu
-" Use relative number
-set relativenumber
 " Use local path (:find filename)
 set path=*/**
 let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
@@ -110,9 +90,3 @@ let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
 "set termguicolors
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 "set completeopt=menu,menuone,noselect
-"colo doom-one
-colo vibrantink
-"let g:coc_node_path = "~/.linuxbrew/bin/node"
-"lua require('github-theme').setup()
-"let g:molokai_original = 1
-let g:ale_completion_enabled = 1
