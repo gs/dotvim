@@ -14,8 +14,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-test/vim-test'
 "Ruby & Rails
     Plug 'tpope/vim-rails'
-    Plug 'tpope/vim-rake'
-    Plug 'vim-ruby/vim-ruby'
 "General
    Plug 'tpope/vim-repeat'
    Plug 'tpope/vim-surround'
@@ -81,12 +79,7 @@ map ,/ <esc>:Rg <cr>
 
 let maplocalleader = "\\"
 let mapleader = ","
-"clojure mappings: \ee (execute current) \er (executer outside)
 
 " Use local path (:find filename)
 set path=*/**
-let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
-"Search
-"set termguicolors
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
-"set completeopt=menu,menuone,noselect
