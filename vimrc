@@ -19,9 +19,10 @@ call plug#begin('~/.vim/plugged')
    Plug 'tpope/vim-surround'
 call plug#end()
 
+" FZF bottom
+let g:fzf_layout = { 'down': '~40%' }
 syntax on
 tnoremap <Esc> <C-\><C-n>
-let g:python_host_prog = expand(systemlist('which python')[0])
 let g:python3_host_prog = expand(systemlist('which python3')[0])
 
 set autoindent
@@ -83,3 +84,4 @@ let mapleader = ","
 " Use local path (:find filename)
 set path=*/**
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+colo tir_black
