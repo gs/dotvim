@@ -51,7 +51,7 @@ set hidden                " allow background buffers
 set hlsearch              " highlight the search query
 set incsearch             " highlight matching strings
 set ignorecase            " case insensitive searching
-set laststatus=2          " always show airline
+"set laststatus=2          " always show airline
 set lazyredraw            " don't redraw during macro execution
 set mouse=a               " enable the mouse
 set nobackup              " no backup files
@@ -109,12 +109,14 @@ let g:iced_enable_default_key_mappings = v:true " Default keybindings
 let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 set completeopt=menu,preview
-highlight Pmenu ctermbg=gray guibg=gray
+color smyck
 "Insert  =>
 imap <c-l> <space>=><space>
 
 " Push the FZF results into the bottom
 let g:fzf_layout = { 'down': '~40%' }
 " Map Enter to Run Test file
-map <CR> :TestFile<cr>
+map ,tf :TestFile<cr>
+map ,tt :TestNearest<cr>
+map ,ts :TestSuite<cr>
 map <leader>p :PromoteToLet<cr>
