@@ -8,9 +8,6 @@ endif
 call plug#begin('~/.vim/plugged')
 "Completion and more
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Files
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
 "Git
     Plug 'tpope/vim-fugitive'
 "Test Runners
@@ -83,11 +80,25 @@ map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 map ,. <esc>yiw\|:Rg <c-r>"
 
 " list files
-map ,f <esc>:Files<cr>
-"" currently opened buffers
-map ,b <esc>:Buffers<cr>
+map ,ff <esc>:CocList files<cr>
+" list buffers
+map ,fb <esc>:CocList buffers<cr>
+" list recent files
+map ,fr <esc>:CocList mru<cr>
+" list lines
+map ,fl <esc>:CocList lines<cr>
+" list definitions
+map ,fs <esc>:CocList outline<cr>
+" list definitions all folders
+map ,fS <esc>:CocList symbols<cr>
+" list tags
+map ,ft <esc>:CocList tags<cr>
+" Search
+map ,/ <esc>:CocSearch <cr>
+"" find word under cursor
+map ,. <esc>yiw\|:CocSearch <c-r>"
 
-map ,/ <esc>:Rg <cr>
+
 
 let maplocalleader = "\\"
 let mapleader = ","
@@ -116,7 +127,7 @@ imap <c-l> <space>=><space>
 " Push the FZF results into the bottom
 let g:fzf_layout = { 'down': '~40%' }
 " Map Enter to Run Test file
-map ,tf :TestFile<cr>
-map ,tt :TestNearest<cr>
-map ,ts :TestSuite<cr>
+map ,tf :TestFile -vv<cr>
+map ,tt :TestNearest -vv<cr>
+map ,ts :TestSuite -vv<cr>
 map <leader>p :PromoteToLet<cr>
