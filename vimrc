@@ -131,3 +131,4 @@ map ,tf :TestFile -vv<cr>
 map ,tt :TestNearest -vv<cr>
 map ,ts :TestSuite -vv<cr>
 map <leader>p :PromoteToLet<cr>
+let g:netrw_keepdir=0 # fix moving files in netrw
