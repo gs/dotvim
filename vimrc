@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-rails'
     Plug 'tpope/vim-rake'
     Plug 'vim-ruby/vim-ruby'
+    Plug 'danchoi/ri.vim'
 "General
    Plug 'honza/vim-snippets'
    Plug 'tpope/vim-repeat'
@@ -127,8 +128,8 @@ imap <c-l> <space>=><space>
 " Push the FZF results into the bottom
 let g:fzf_layout = { 'down': '~40%' }
 " Map Enter to Run Test file
-map ,tf :TestFile -vv<cr>
-map ,tt :TestNearest -vv<cr>
-map ,ts :TestSuite -vv<cr>
+map ,tf :TestFile<cr>
+map ,tt :TestNearest<cr>
+map ,ts :TestSuite<cr>
 map <leader>p :PromoteToLet<cr>
-let g:netrw_keepdir=0 # fix moving files in netrw
+let g:netrw_keepdir=0 " fix moving files in netrw
