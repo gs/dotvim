@@ -49,7 +49,7 @@ set hidden                " allow background buffers
 set hlsearch              " highlight the search query
 set incsearch             " highlight matching strings
 set ignorecase            " case insensitive searching
-"set laststatus=2          " always show airline
+set laststatus=2          " always show airline
 set lazyredraw            " don't redraw during macro execution
 set mouse=a               " enable the mouse
 set nobackup              " no backup files
@@ -59,13 +59,25 @@ set scrolljump=1          " scroll 1 line at a time
 set scrolloff=5           " start scrolling 5 lines before bottom of pane
 set shiftwidth=2          " shift lines by 2 characters
 set smartcase             " only use case sensitive search when uppercase
+"set number               " set line number
+"set relativenumber       " use relative line number
+set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%) " line status
+set path=*/**             " Use local path (:find filename)
+"completion 
+set completeopt=menu,preview
+set omnifunc=syntaxcomplete#Complete
+"clojure mappings: \ee (execute current) \er (executer outside)
 
-function! Today()
-    :pu='* ' . strftime('%y/%m/%d')
-endfunction
-command! Today :call Today()
+" coc-vim plugins
+let g:coc_global_extensions = [ 'coc-conjure', 'coc-solargraph', 'coc-snippets', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-highlight', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-tabnine', 'coc-pyright', 'coc-html', 'coc-spell-checker', 'coc-explorer']
 
-" My mappings
+autocmd! GUIEnter * set vb t_vb=
+let g:iced_enable_default_key_mappings = v:true " Default keybindings
+let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
+
+color smyck
+
+" Mappings
 "" use `;` as `:`
 nnoremap \ ;
 nnoremap ; :
@@ -77,9 +89,6 @@ map ,D :bp\|bd#<cr>
 map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 "" expand current path in split
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
-"" find word under cursor
-map ,. <esc>yiw\|:Rg <c-r>"
-
 " list files
 map ,ff <esc>:CocList files<cr>
 " list buffers
@@ -98,38 +107,19 @@ map ,ft <esc>:CocList tags<cr>
 map ,/ <esc>:CocSearch <cr>
 "" find word under cursor
 map ,. <esc>yiw\|:CocSearch <c-r>"
-
-
-
 let maplocalleader = "\\"
 let mapleader = ","
-"clojure mappings: \ee (execute current) \er (executer outside)
-let g:coc_global_extensions = ['coc-conjure', 'coc-solargraph', 'coc-snippets', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-highlight', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-tabnine', 'coc-pyright', 'coc-html']
-
-" Show line number
-set nu
-" Use relative number
-set relativenumber
-" Use local path (:find filename)
-set path=*/**
-" Example configuration
-nmap <Leader>bj <Plug>(coc-bookmark-next)
-nmap <Leader>bk <Plug>(coc-bookmark-prev)
-set omnifunc=syntaxcomplete#Complete
-autocmd! GUIEnter * set vb t_vb=
-let g:iced_enable_default_key_mappings = v:true " Default keybindings
-let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
-set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
-set completeopt=menu,preview
-color smyck
 "Insert  =>
 imap <c-l> <space>=><space>
-
-" Push the FZF results into the bottom
-let g:fzf_layout = { 'down': '~40%' }
-" Map Enter to Run Test file
+"  Enter to Run tests
+map <cr> <esc>:w!\|:TestFile<cr>
+"  Test Runners
 map ,tf :TestFile<cr>
 map ,tt :TestNearest<cr>
 map ,ts :TestSuite<cr>
 map <leader>p :PromoteToLet<cr>
-let g:netrw_keepdir=0 " fix moving files in netrw
+" Fix spelling
+vmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>a <Plug>(coc-codeaction-selected)
+" File Explorer
+map ,X :CocCommand explorer<cr>
