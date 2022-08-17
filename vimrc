@@ -33,8 +33,20 @@ call plug#begin('~/.vim/plugged')
     Plug 'chemzqm/vim-jsx-improve'
 call plug#end()
 
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 syntax on
+" Tab completion with coc-nvim
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ?
+      \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ CheckBackSpace() ? "\<TAB>" :
+      \ coc#refresh()
+function! CheckBackSpace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+let g:coc_snippet_next = '<tab>'
+
 tnoremap <Esc> <C-\><C-n>
 let g:python_host_prog = expand(systemlist('which python')[0])
 let g:python3_host_prog = expand(systemlist('which python3')[0])
@@ -64,8 +76,8 @@ set smartcase             " only use case sensitive search when uppercase
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%) " line status
 set path=*/**             " Use local path (:find filename)
 "completion 
-set completeopt=menu,preview
-set omnifunc=syntaxcomplete#Complete
+"set completeopt=menu,preview
+"set omnifunc=syntaxcomplete#Complete
 "clojure mappings: \ee (execute current) \er (executer outside)
 
 " coc-vim plugins
