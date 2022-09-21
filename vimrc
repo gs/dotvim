@@ -28,25 +28,17 @@ call plug#begin('~/.vim/plugged')
     Plug 'guns/vim-sexp',    {'for': 'clojure'}
     Plug 'liquidz/vim-iced', {'for': 'clojure'}
     Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}
+"HardMode
+    Plug 'dusans/vim-hardmode'
 
 "JSX
     Plug 'chemzqm/vim-jsx-improve'
+    Plug 'leafOfTree/vim-svelte-plugin'
+"Theme
+    Plug 'gs/muon-dark'
 call plug#end()
 
 syntax on
-" Tab completion with coc-nvim
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ?
-      \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ CheckBackSpace() ? "\<TAB>" :
-      \ coc#refresh()
-function! CheckBackSpace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-let g:coc_snippet_next = '<tab>'
-
 tnoremap <Esc> <C-\><C-n>
 let g:python_host_prog = expand(systemlist('which python')[0])
 let g:python3_host_prog = expand(systemlist('which python3')[0])
@@ -101,24 +93,7 @@ map ,D :bp\|bd#<cr>
 map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 "" expand current path in split
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
-" list files
-map ,ff <esc>:CocList files<cr>
-" list buffers
-map ,fb <esc>:CocList buffers<cr>
-" list recent files
-map ,fr <esc>:CocList mru<cr>
-" list lines
-map ,fl <esc>:CocList lines<cr>
-" list definitions
-map ,fs <esc>:CocList outline<cr>
-" list definitions all folders
-map ,fS <esc>:CocList symbols<cr>
-" list tags
-map ,ft <esc>:CocList tags<cr>
-" Search
-map ,/ <esc>:CocSearch <cr>
 "" find word under cursor
-map ,. <esc>yiw\|:CocSearch <c-r>"
 let maplocalleader = "\\"
 let mapleader = ","
 "Insert  =>

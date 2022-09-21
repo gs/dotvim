@@ -36,7 +36,7 @@ nnoremap <silent> ,cl  :<C-u>CocList locationlist<cr>
 nnoremap <silent> ,cc  :<C-u>CocList commands<cr>
 
 " restart when tsserver gets wonky
-nnoremap <silent> ,cR  :<C-u>CocRestart<CR>
+nnoremap <silent> ,CR  :<C-u>CocRestart<CR>
 
 " view all errors
 nnoremap <silent> ,cl  :<C-u>CocList locationlist<CR>
@@ -46,22 +46,38 @@ nnoremap <silent> ,cx  :<C-u>CocList extensions<cr>
 
 " rename the current word in the cursor
 nmap ,cr  <Plug>(coc-rename)
-nmap ,cf  <Plug>(coc-format-selected)
-vmap ,cf  <Plug>(coc-format-selected)
+nmap ,cF  <Plug>(coc-format-selected)
+vmap ,cF  <Plug>(coc-format-selected)
 
 " run code actions
 vmap ,ca  <Plug>(coc-codeaction-selected)
 nmap ,ca  <Plug>(coc-codeaction-selected)
 
+map ,cf <esc>:CocList files<cr>
+" list buffers
+map ,cb <esc>:CocList buffers<cr>
+" list recent files
+map ,cr <esc>:CocList mru<cr>
+" list lines
+map ,cl <esc>:CocList lines<cr>
+" list definitions all folders
+map ,cS <esc>:CocList symbols<cr>
+" list tags
+map ,ct <esc>:CocList tags<cr>
+" Search
+map ,/ <esc>:CocSearch <cr>
 
-" coc-snippets https://www.npmjs.com/package/coc-snippets
+" Search the word under coursor
+map ,. <esc>yiw\|:CocSearch <c-r>"
+
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ?
+      \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ CheckBackSpace() ? "\<TAB>" :
       \ coc#refresh()
 
-function! s:check_back_space() abort
+function! CheckBackSpace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
