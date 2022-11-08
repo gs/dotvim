@@ -22,6 +22,7 @@
   "solargraph.formatting": true,
   "solargraph.diagnostics": true,
   "solargraph.checkGemVersion": true,
+  "explorer.position": "right",
   "cSpell.enabledLanguageIds": [
     "asciidoc",
     "c",
@@ -57,5 +58,6 @@
     "vim",
     "yaml",
     "yml"
-  ]
+  ],
+  "snippets.ultisnips.pythonPrompt": false
 }

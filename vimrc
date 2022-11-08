@@ -28,14 +28,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'guns/vim-sexp',    {'for': 'clojure'}
     Plug 'liquidz/vim-iced', {'for': 'clojure'}
     Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}
-"HardMode
-    Plug 'dusans/vim-hardmode'
-
-"JSX
-    Plug 'chemzqm/vim-jsx-improve'
-    Plug 'leafOfTree/vim-svelte-plugin'
 "Theme
-    Plug 'gs/muon-dark'
+    Plug 'dracula/vim'
+    Plug 'Mofiqul/vscode.nvim'
+    Plug 'github/copilot.vim'
 call plug#end()
 
 syntax on
@@ -73,14 +69,16 @@ set path=*/**             " Use local path (:find filename)
 "clojure mappings: \ee (execute current) \er (executer outside)
 
 " coc-vim plugins
-let g:coc_global_extensions = [ 'coc-conjure', 'coc-solargraph', 'coc-snippets', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-highlight', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-tabnine', 'coc-pyright', 'coc-html', 'coc-spell-checker', 'coc-explorer']
+"let g:coc_global_extensions = [ 'coc-conjure', 'coc-solargraph', 'coc-snippets', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-highlight', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-tabnine', 'coc-pyright', 'coc-html', 'coc-spell-checker', 'coc-explorer']
+let g:coc_global_extensions = [ 'coc-marketplace', 'coc-conjure', 'coc-snippets', 'coc-eslint', 'coc-prettier', 'coc-css', 'coc-lists', 'coc-highlight', 'coc-json', 'coc-yaml', 'coc-diagnostic',  'coc-pyright', 'coc-html', 'coc-spell-checker', 'coc-explorer']
 
 autocmd! GUIEnter * set vb t_vb=
 let g:iced_enable_default_key_mappings = v:true " Default keybindings
-let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
+"let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
 
-color smyck
-
+set background=dark
+color vscode
+let g:copilot_node_command = "/opt/homebrew/opt/node@16/bin/node"
 " Mappings
 "" use `;` as `:`
 nnoremap \ ;
@@ -110,3 +108,6 @@ vmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>a <Plug>(coc-codeaction-selected)
 " File Explorer
 map ,X :CocCommand explorer<cr>
+
+" Map jj to save
+imap jj <ESC>:w!<cr>
