@@ -94,5 +94,5 @@ set path=*/**
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 colo monokai
 map <cr> <esc>:w!\|TestFile<cr>
-+map ,tt <esc>:w!\|TestNearest<cr>
+map ,tt <esc>:w!\|TestNearest<cr>
 
