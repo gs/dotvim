@@ -6,7 +6,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-   Plug 'ervandew/supertab'
+"Snippets
+   Plug 'honza/vim-snippets'
+   Plug 'SirVer/ultisnips'
 "Files
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
@@ -45,6 +47,7 @@ set scrolljump=1          " scroll 1 line at a time
 set scrolloff=5           " start scrolling 5 lines before bottom of pane
 set shiftwidth=2          " shift lines by 2 characters
 set smartcase             " only use case sensitive search when uppercase
+set number
 
 function! Today()
     :pu='* ' . strftime('%y/%m/%d')
@@ -84,4 +87,5 @@ let mapleader = ","
 " Use local path (:find filename)
 set path=*/**
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
-colo tir_black
+colo monokai
+
