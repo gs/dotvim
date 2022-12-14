@@ -7,18 +7,22 @@ endif
 
 call plug#begin('~/.vim/plugged')
 "Snippets
-   Plug 'honza/vim-snippets'
-   Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
+  Plug 'SirVer/ultisnips'
 "Files
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 "Test Runners
-    Plug 'vim-test/vim-test'
+  Plug 'vim-test/vim-test'
 "Ruby & Rails
-    Plug 'tpope/vim-rails'
+  Plug 'tpope/vim-rails'
 "General
-   Plug 'tpope/vim-repeat'
-   Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-surround'
+"Git
+  Plug 'tpope/vim-fugitive'
+"Test Runner
+  Plug 'vim-test/vim-test'
 call plug#end()
 
 " FZF bottom
