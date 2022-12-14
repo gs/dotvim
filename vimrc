@@ -51,7 +51,8 @@ set scrolljump=1          " scroll 1 line at a time
 set scrolloff=5           " start scrolling 5 lines before bottom of pane
 set shiftwidth=2          " shift lines by 2 characters
 set smartcase             " only use case sensitive search when uppercase
-set number
+set number                " show line numbers
+set nowrap                " don't wrap the text
 
 function! Today()
     :pu='* ' . strftime('%y/%m/%d')
@@ -92,4 +93,6 @@ let mapleader = ","
 set path=*/**
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 colo monokai
+map <cr> <esc>:w!\|TestFile<cr>
++map ,tt <esc>:w!\|TestNearest<cr>
 
