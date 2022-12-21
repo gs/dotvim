@@ -21,17 +21,8 @@ call plug#begin('~/.vim/plugged')
    Plug 'honza/vim-snippets'
    Plug 'tpope/vim-repeat'
    Plug 'tpope/vim-surround'
-   Plug 'jiangmiao/auto-pairs'
-"Clojure
-    Plug 'eraserhd/parinfer-rust', {'do':
-          \  'cargo build --release'}
-    Plug 'guns/vim-sexp',    {'for': 'clojure'}
-    Plug 'liquidz/vim-iced', {'for': 'clojure'}
-    Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}
 "Theme
-    Plug 'dracula/vim'
-    Plug 'Mofiqul/vscode.nvim'
-    Plug 'github/copilot.vim'
+    Plug 'jacoborus/tender.vim'
 call plug#end()
 
 syntax on
@@ -59,26 +50,20 @@ set scrolljump=1          " scroll 1 line at a time
 set scrolloff=5           " start scrolling 5 lines before bottom of pane
 set shiftwidth=2          " shift lines by 2 characters
 set smartcase             " only use case sensitive search when uppercase
-"set number               " set line number
-"set relativenumber       " use relative line number
+set number               " set line number
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%) " line status
 set path=*/**             " Use local path (:find filename)
-"completion 
-"set completeopt=menu,preview
-"set omnifunc=syntaxcomplete#Complete
-"clojure mappings: \ee (execute current) \er (executer outside)
+set background=dark
+set cursorline
 
+color tender
+"
 " coc-vim plugins
-"let g:coc_global_extensions = [ 'coc-conjure', 'coc-solargraph', 'coc-snippets', 'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-highlight', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-tabnine', 'coc-pyright', 'coc-html', 'coc-spell-checker', 'coc-explorer']
-let g:coc_global_extensions = [ 'coc-marketplace', 'coc-conjure', 'coc-snippets', 'coc-eslint', 'coc-prettier', 'coc-css', 'coc-lists', 'coc-highlight', 'coc-json', 'coc-yaml', 'coc-diagnostic',  'coc-pyright', 'coc-html', 'coc-spell-checker', 'coc-explorer']
+let g:coc_global_extensions = [ 'coc-solargraph', 'coc-snippets', 'coc-tsserver', 'coc-prettier', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-highlight', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-tabnine', 'coc-pyright', 'coc-html', 'coc-explorer', 'coc-pairs']
 
 autocmd! GUIEnter * set vb t_vb=
-let g:iced_enable_default_key_mappings = v:true " Default keybindings
-"let g:sexp_mappings = {'sexp_indent': '', 'sexp_indent_top': ''}
-
-set background=dark
-color vscode
 let g:copilot_node_command = "/opt/homebrew/opt/node@16/bin/node"
+
 " Mappings
 "" use `;` as `:`
 nnoremap \ ;
@@ -104,10 +89,10 @@ map ,tt :TestNearest<cr>
 map ,ts :TestSuite<cr>
 map <leader>p :PromoteToLet<cr>
 " Fix spelling
-vmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>a <Plug>(coc-codeaction-selected)
 " File Explorer
 map ,X :CocCommand explorer<cr>
 
 " Map jj to save
 imap jj <ESC>:w!<cr>
+" let g:coc_node_path='/nail/home/grzegorz/.nvm/versions/node/v16.19.0/bin/node'
