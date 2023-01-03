@@ -14,9 +14,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-test/vim-test'
 "Ruby & Rails
     Plug 'tpope/vim-rails'
-    Plug 'tpope/vim-rake'
-    Plug 'vim-ruby/vim-ruby'
-    Plug 'danchoi/ri.vim'
 "General
    Plug 'honza/vim-snippets'
    Plug 'tpope/vim-repeat'
@@ -96,3 +93,4 @@ map ,X :CocCommand explorer<cr>
 " Map jj to save
 imap jj <ESC>:w!<cr>
 " let g:coc_node_path='/nail/home/grzegorz/.nvm/versions/node/v16.19.0/bin/node'
+set laststatus=0
