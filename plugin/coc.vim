@@ -38,9 +38,6 @@ nnoremap <silent> ,cc  :<C-u>CocList commands<cr>
 " restart when tsserver gets wonky
 nnoremap <silent> ,CR  :<C-u>CocRestart<CR>
 
-" view all errors
-nnoremap <silent> ,cl  :<C-u>CocList locationlist<CR>
-
 " manage extensions
 nnoremap <silent> ,cx  :<C-u>CocList extensions<cr>
 
@@ -54,6 +51,7 @@ vmap ,ca  <Plug>(coc-codeaction-selected)
 nmap ,ca  <Plug>(coc-codeaction-selected)
 
 map ,cf <esc>:CocList files<cr>
+map <c-p> :CocList files<cr>
 " list buffers
 map ,cb <esc>:CocList buffers<cr>
 " list recent files
@@ -65,7 +63,7 @@ map ,cS <esc>:CocList symbols<cr>
 " list tags
 map ,ct <esc>:CocList tags<cr>
 " Search
-map ,/ <esc>:CocSearch <cr>
+map ,/ <esc>:CocSearch 
 
 " Search the word under coursor
 map ,. <esc>yiw\|:CocSearch <c-r>"

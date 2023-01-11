@@ -24,7 +24,6 @@ call plug#end()
 
 syntax on
 tnoremap <Esc> <C-\><C-n>
-let g:python_host_prog = expand(systemlist('which python')[0])
 let g:python3_host_prog = expand(systemlist('which python3')[0])
 
 set autoindent
@@ -59,7 +58,7 @@ color tender
 let g:coc_global_extensions = [ 'coc-solargraph', 'coc-snippets', 'coc-tsserver', 'coc-prettier', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-highlight', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-tabnine', 'coc-pyright', 'coc-html', 'coc-explorer', 'coc-pairs']
 
 autocmd! GUIEnter * set vb t_vb=
-let g:copilot_node_command = "/opt/homebrew/opt/node@16/bin/node"
+"let g:copilot_node_command = "/opt/homebrew/opt/node@16/bin/node"
 
 " Mappings
 "" use `;` as `:`
@@ -79,11 +78,12 @@ let mapleader = ","
 "Insert  =>
 imap <c-l> <space>=><space>
 "  Enter to Run tests
-map <cr> <esc>:w!\|:TestFile<cr>
+map <cr> <esc>:wa!\|:TestFile<cr>
 "  Test Runners
-map ,tf :TestFile<cr>
-map ,tt :TestNearest<cr>
-map ,ts :TestSuite<cr>
+map ,tf <esc>:wa!\|:TestFile<cr>
+map ,tt <esc>:wa!\|:TestNearest<cr>
+map ,ts <esc>:wa!\|:TestSuite<cr>
+" Rspec specific
 map <leader>p :PromoteToLet<cr>
 " Fix spelling
 nmap <leader>a <Plug>(coc-codeaction-selected)
@@ -93,4 +93,4 @@ map ,X :CocCommand explorer<cr>
 " Map jj to save
 imap jj <ESC>:w!<cr>
 " let g:coc_node_path='/nail/home/grzegorz/.nvm/versions/node/v16.19.0/bin/node'
-set laststatus=0
+"set laststatus=0
