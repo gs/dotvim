@@ -12,8 +12,6 @@ call plug#begin('~/.vim/plugged')
 "Files
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-"Test Runners
-  Plug 'vim-test/vim-test'
 "Ruby & Rails
   Plug 'tpope/vim-rails'
 "General
@@ -73,7 +71,7 @@ map ,E :e <C-R>=expand("%:p:h") . "/" <CR>
 "" expand current path in split
 map ,S :split <C-R>=expand("%:p:h") . "/" <CR>
 "" find word under cursor
-map ,r <esc>yiw\|:Rg <c-r>"
+map ,. <esc>yiw\|:Rg <c-r>"
 
 " list files
 map ,f <esc>:Files<cr>
@@ -93,6 +91,6 @@ let mapleader = ","
 set path=*/**
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 colo monokai
-map <cr> <esc>:w!\|TestFile<cr>
-map ,tt <esc>:w!\|TestNearest<cr>
+map <cr> <esc>:wa!\|TestFile<cr>
+map ,tt <esc>:wa!\|TestNearest<cr>
 
