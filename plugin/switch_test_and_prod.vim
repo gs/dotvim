@@ -31,12 +31,11 @@ endfunction
 
 
 function! FindAlternateFilePy(file_name)
-  let file_name = a:file_name
-  let is_test = match(file_name, '_test.py') != -1
-  if is_test
-    return substitute(file_name, '_test.py', '.py', '')
+  if match(a:file_name, '_test.py') != -1
+    return substitute(a:file_name, '_test.py', '.py', '')
+  else
+    return substitute(a:file_name, '.py', '_test.py', '')
   endif
-  return substitute(file_name, '.py', '_test.py', '')
 endfunction
 
 
@@ -48,9 +47,10 @@ function GetAlternateFileName()
   elseif match(file_name, '.rb') != -1
     echo 'ruby'
     return FindAlternateFileRb(file_name)
+  else
+    echo 'unknown'
+    return ''
   endif
-  echo 'unknown'
-  return ''
 endfunction
 
 function! OpenAlterateFile() 
