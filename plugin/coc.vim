@@ -51,17 +51,20 @@ vmap ,ca  <Plug>(coc-codeaction-selected)
 nmap ,ca  <Plug>(coc-codeaction-selected)
 
 map ,cf <esc>:CocList files<cr>
-map <c-p> :CocList files<cr>
+map <c-p> :CocList -A files<cr>
 " list buffers
 map ,cb <esc>:CocList buffers<cr>
+map <c-b> <esc>:CocList -A buffers<cr>
 " list recent files
-map ,cr <esc>:CocList mru<cr>
+map ,cr <esc>:CocList -A mru<cr>
 " list lines
 map ,cl <esc>:CocList lines<cr>
 " list definitions all folders
 map ,cS <esc>:CocList symbols<cr>
 " list tags
 map ,ct <esc>:CocList tags<cr>
+
+map ,cw <esc>:CocList words<cr>
 " Search
 map ,/ <esc>:CocSearch 
 
