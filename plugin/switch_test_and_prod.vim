@@ -53,26 +53,19 @@ function GetAlternateFileName()
   endif
 endfunction
 
-function! OpenAlterateFile() 
+function! OpenAlterateFile(how='')
   let alternate_file = GetAlternateFileName() 
   if len(alternate_file) == 0
     echo "Don't know how to find alternate for " . expand("%:t")
     return
   endif
-  exec 'find ' . alternate_file
-endfunction
-
-function! OpenAlterateFileVSplit() 
-  let alternate_file = GetAlternateFileName()
-  if len(alternate_file) == 0
-    echo "Don't know how to find alternate for " . expand("%:t")
-    return
+  if a:how != ''
+    exec a:how
   endif
-  exec 'vsp'
   exec 'find ' . alternate_file
 endfunction
 
 command! A :call OpenAlterateFile()
-command! AV :call OpenAlterateFileVSplit()
-
+command! AV :call OpenAlterateFile('vsp')
+command! AS :call OpenAlterateFile('sp')
 
