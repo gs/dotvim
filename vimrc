@@ -17,7 +17,9 @@ call plug#begin('~/.vim/plugged')
 "General
    Plug 'honza/vim-snippets'
    Plug 'tpope/vim-repeat'
+   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
    Plug 'tpope/vim-surround'
+   Plug 'tpope/vim-rsi'
 "Theme
     Plug 'jacoborus/tender.vim'
 call plug#end()
