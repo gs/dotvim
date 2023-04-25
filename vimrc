@@ -16,10 +16,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-rails'
 "General
    Plug 'honza/vim-snippets'
-   Plug 'tpope/vim-repeat'
    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-   Plug 'tpope/vim-surround'
+   Plug 'tpope/vim-endwise'
+   Plug 'tpope/vim-repeat'
    Plug 'tpope/vim-rsi'
+   Plug 'tpope/vim-sensible'
+   Plug 'tpope/vim-sleuth'
+   Plug 'tpope/vim-surround'
+   Plug 'tpope/vim-unimpaired'
 "Theme
     Plug 'jacoborus/tender.vim'
 call plug#end()
@@ -28,36 +32,12 @@ syntax on
 tnoremap <Esc> <C-\><C-n>
 let g:python3_host_prog = expand(systemlist('which python3')[0])
 
-set autoindent
-set autoread              " auto read files changed outside vim
-set colorcolumn=90        " highlight max length column
-set encoding=utf-8        " set encoding
-set expandtab             " tabs to spaces
-set formatoptions+=j
-set hidden                " allow background buffers
-set hlsearch              " highlight the search query
-set incsearch             " highlight matching strings
-set ignorecase            " case insensitive searching
-set laststatus=2          " always show airline
-set lazyredraw            " don't redraw during macro execution
-set mouse=a               " enable the mouse
-set nobackup              " no backup files
-set noshowmode            " doesn't show the current mode in the command bar
-set noswapfile            " no swap files
-set scrolljump=1          " scroll 1 line at a time
-set scrolloff=5           " start scrolling 5 lines before bottom of pane
-set shiftwidth=2          " shift lines by 2 characters
-set smartcase             " only use case sensitive search when uppercase
-set number               " set line number
-set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%) " line status
-set path=*/**             " Use local path (:find filename)
-set background=dark
-set cursorline
+set path=*/**
 
 color tender
-"
+
 " coc-vim plugins
-let g:coc_global_extensions = [ 'coc-solargraph', 'coc-snippets', 'coc-tsserver', 'coc-prettier', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-highlight', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-tabnine', 'coc-pyright', 'coc-html', 'coc-explorer', 'coc-pairs']
+let g:coc_global_extensions = [ 'coc-snippets', 'coc-tsserver', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-highlight', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-tabnine', 'coc-pyright', 'coc-html', 'coc-explorer', 'coc-pairs']
 
 autocmd! GUIEnter * set vb t_vb=
 "let g:copilot_node_command = "/opt/homebrew/opt/node@16/bin/node"
