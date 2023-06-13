@@ -54,6 +54,7 @@ function GetAlternateFileName()
 endfunction
 
 function! OpenAlterateFile(how='')
+  let current_folder = fnamemodify(expand('%:p:h'), ':t')
   let alternate_file = GetAlternateFileName() 
   if len(alternate_file) == 0
     echo "Don't know how to find alternate for " . expand("%:t")
@@ -62,7 +63,7 @@ function! OpenAlterateFile(how='')
   if a:how != ''
     exec a:how
   endif
-  exec 'find ' . alternate_file
+  exec 'find ' . current_folder . "/" . alternate_file
 endfunction
 
 command! A :call OpenAlterateFile()
