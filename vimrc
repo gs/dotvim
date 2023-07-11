@@ -21,10 +21,9 @@ call plug#begin('~/.vim/plugged')
    Plug 'tpope/vim-sensible'
    Plug 'tpope/vim-sleuth'
    Plug 'tpope/vim-surround'
+   Plug 'jremmen/vim-ripgrep'
    Plug 'tpope/vim-unimpaired'
-   Plug 'Exafunction/codeium.vim'
-"Theme
-    Plug 'jacoborus/tender.vim'
+   Plug 'tpope/vim-endwise'
 call plug#end()
 
 syntax on
