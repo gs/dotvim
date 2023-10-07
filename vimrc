@@ -24,10 +24,21 @@ call plug#begin('~/.vim/plugged')
    Plug 'jremmen/vim-ripgrep'
    Plug 'tpope/vim-unimpaired'
    Plug 'tpope/vim-endwise'
+"Completion and ChatGPT
+    Plug 'Exafunction/codeium.vim'
+    Plug 'dpayne/CodeGPT.nvim'
+    Plug 'MunifTanjim/nui.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'jackMort/ChatGPT.nvim'
+    Plug 'CoderCookE/vim-chatgpt'
 call plug#end()
 
 syntax on
 set path=*/**
+
+"colors allhallowseve
+color elflord
 
 " coc-vim plugins
 let g:coc_global_extensions = [ 'coc-snippets', 'coc-tsserver', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-highlight', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-pyright', 'coc-html', 'coc-explorer', 'coc-pairs', 'coc-marketplace']
@@ -36,3 +47,14 @@ autocmd! GUIEnter * set vb t_vb=
 "let g:copilot_node_command = "/opt/homebrew/opt/node@16/bin/node"
 " let g:coc_node_path='/nail/home/grzegorz/.nvm/versions/node/v16.19.0/bin/node'
 "set laststatus=0
+set number
+"set relativenumber
+"highlight Pmenu ctermbg=gray guibg=gray
+language en_US
+"ChatGPT
+let g:chat_gpt_model='gpt-4'
+let g:chat_gpt_max_tokens=2000
+let g:chat_gpt_session_mode=1
+
+"Codeium
+let g:codeium_disable_bindings = 1
