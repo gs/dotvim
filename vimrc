@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
 "Ruby & Rails
     Plug 'tpope/vim-rails'
 "General
+   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
    Plug 'honza/vim-snippets'
    Plug 'tpope/vim-repeat'
    Plug 'tpope/vim-rsi'
@@ -26,19 +27,16 @@ call plug#begin('~/.vim/plugged')
    Plug 'tpope/vim-endwise'
 "Completion and ChatGPT
     Plug 'Exafunction/codeium.vim'
-    Plug 'dpayne/CodeGPT.nvim'
-    Plug 'MunifTanjim/nui.nvim'
     Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
-    Plug 'jackMort/ChatGPT.nvim'
+    Plug 'MunifTanjim/nui.nvim'
+    Plug 'dpayne/CodeGPT.nvim'
     Plug 'CoderCookE/vim-chatgpt'
 call plug#end()
 
 syntax on
 set path=*/**
 
-"colors allhallowseve
-color elflord
+colo tir_black
 
 " coc-vim plugins
 let g:coc_global_extensions = [ 'coc-snippets', 'coc-tsserver', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-highlight', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-pyright', 'coc-html', 'coc-explorer', 'coc-pairs', 'coc-marketplace']
@@ -47,7 +45,7 @@ autocmd! GUIEnter * set vb t_vb=
 "let g:copilot_node_command = "/opt/homebrew/opt/node@16/bin/node"
 " let g:coc_node_path='/nail/home/grzegorz/.nvm/versions/node/v16.19.0/bin/node'
 "set laststatus=0
-set number
+"set nonumber
 "set relativenumber
 "highlight Pmenu ctermbg=gray guibg=gray
 language en_US
