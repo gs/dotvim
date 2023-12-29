@@ -7,6 +7,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 "Completion and more
+    Plug 'williamboman/mason.nvim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Git
     Plug 'tpope/vim-fugitive'
@@ -58,4 +59,5 @@ let g:chat_gpt_session_mode=1
 
 "Codeium
 let g:codeium_disable_bindings = 1
-"lua require('/Users/sfistak/.vim/lua/standardrb.lua')
+lua require('standardrb')
+lua require('init')
