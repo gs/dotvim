@@ -6,6 +6,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+    Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 "Git
     Plug 'tpope/vim-fugitive'
 "Test Runners
@@ -13,6 +14,7 @@ call plug#begin('~/.vim/plugged')
 "Ruby & Rails
     Plug 'tpope/vim-rails'
 "General
+   Plug 'williamboman/mason.nvim'
    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
    Plug 'honza/vim-snippets'
    Plug 'tpope/vim-repeat'
@@ -30,7 +32,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'MunifTanjim/nui.nvim'
     Plug 'dpayne/CodeGPT.nvim'
-    Plug 'williamboman/mason.nvim'
 call plug#end()
 
 syntax on
