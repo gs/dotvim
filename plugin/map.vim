@@ -12,8 +12,8 @@ map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 "" expand current path in split
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 "" find word under cursor
-let maplocalleader = "\\"
-let mapleader = ","
+"let maplocalleader = "\\"
+"let mapleader = ","
 "Insert  =>
 "imap <c-l> <space>=><space>
 "  Enter to Run tests

@@ -5,8 +5,13 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall
 endif
 
+let maplocalleader = "\\"
+let mapleader = ","
+
 call plug#begin('~/.vim/plugged')
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+    Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+    Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 "Git
     Plug 'tpope/vim-fugitive'
 "Test Runners
