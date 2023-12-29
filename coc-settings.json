@@ -23,7 +23,8 @@
   "solargraph.diagnostics": true,
   "solargraph.checkGemVersion": true,
   "explorer.position": "right",
-  "solargraph.bundlerPath": "/Users/sfistak/.rubies/ruby-3.2.2/bin/bundler",
+  "solargraph.bundlerPath": "/Users/sfistak/.rubies/ruby-3.3.0/bin/bundle",
+  "stimulus-language-server": "--stdio",
   "cSpell.enabledLanguageIds": [
     "asciidoc",
     "c",

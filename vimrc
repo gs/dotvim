@@ -25,21 +25,23 @@ call plug#begin('~/.vim/plugged')
    Plug 'jremmen/vim-ripgrep'
    Plug 'tpope/vim-unimpaired'
    Plug 'tpope/vim-endwise'
+   Plug 'vim-scripts/AnsiEsc.vim'
+   Plug 'kamykn/dark-theme.vim'
 "Completion and ChatGPT
     Plug 'Exafunction/codeium.vim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'MunifTanjim/nui.nvim'
     Plug 'dpayne/CodeGPT.nvim'
-    Plug 'CoderCookE/vim-chatgpt'
 call plug#end()
 
 syntax on
 set path=*/**
 
-colo tir_black
+"colo allhallowseve
+colo darktheme
 
 " coc-vim plugins
-let g:coc_global_extensions = [ 'coc-snippets', 'coc-tsserver', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-highlight', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-pyright', 'coc-html', 'coc-explorer', 'coc-pairs', 'coc-marketplace']
+let g:coc_global_extensions = ['coc-snippets', 'coc-tsserver', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-html', 'coc-pairs', 'coc-marketplace', '@yaegassy/coc-tailwindcss3']
 
 autocmd! GUIEnter * set vb t_vb=
 "let g:copilot_node_command = "/opt/homebrew/opt/node@16/bin/node"
@@ -56,3 +58,4 @@ let g:chat_gpt_session_mode=1
 
 "Codeium
 let g:codeium_disable_bindings = 1
+"lua require('/Users/sfistak/.vim/lua/standardrb.lua')
