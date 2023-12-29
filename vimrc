@@ -6,8 +6,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-"Completion and more
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Git
     Plug 'tpope/vim-fugitive'
 "Test Runners
@@ -32,24 +30,19 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'MunifTanjim/nui.nvim'
     Plug 'dpayne/CodeGPT.nvim'
+    Plug 'williamboman/mason.nvim'
 call plug#end()
 
 syntax on
 set path=*/**
 
+lua require('init')
+
 "colo allhallowseve
 colo darktheme
 
 " coc-vim plugins
-let g:coc_global_extensions = ['coc-snippets', 'coc-tsserver', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-html', 'coc-pairs', 'coc-marketplace', '@yaegassy/coc-tailwindcss3']
-
 autocmd! GUIEnter * set vb t_vb=
-"let g:copilot_node_command = "/opt/homebrew/opt/node@16/bin/node"
-" let g:coc_node_path='/nail/home/grzegorz/.nvm/versions/node/v16.19.0/bin/node'
-"set laststatus=0
-"set nonumber
-"set relativenumber
-"highlight Pmenu ctermbg=gray guibg=gray
 language en_US
 "ChatGPT
 let g:chat_gpt_model='gpt-4'
@@ -58,4 +51,3 @@ let g:chat_gpt_session_mode=1
 
 "Codeium
 let g:codeium_disable_bindings = 1
-"lua require('/Users/sfistak/.vim/lua/standardrb.lua')
