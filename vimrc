@@ -7,7 +7,10 @@ endif
 
 call plug#begin('~/.vim/plugged')
 "Completion and more
+    Plug 'codota/tabnine-nvim', { 'do': './dl_binaries.sh' }
     Plug 'williamboman/mason.nvim'
+    Plug 'williamboman/mason-lspconfig.nvim'
+    Plug 'neovim/nvim-lspconfig'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Git
     Plug 'tpope/vim-fugitive'
@@ -38,11 +41,10 @@ call plug#end()
 syntax on
 set path=*/**
 
-"colo allhallowseve
-colo darktheme
+colo allhallowseve
 
 " coc-vim plugins
-let g:coc_global_extensions = ['coc-snippets', 'coc-tsserver', 'coc-tslint', 'coc-css', 'coc-lists', 'coc-json', 'coc-yaml', 'coc-diagnostic', 'coc-html', 'coc-pairs', 'coc-marketplace', '@yaegassy/coc-tailwindcss3']
+let g:coc_global_extensions = ['coc-snippets', 'coc-lists', 'coc-marketplace', '@yaegassy/coc-tailwindcss3']
 
 autocmd! GUIEnter * set vb t_vb=
 "let g:copilot_node_command = "/opt/homebrew/opt/node@16/bin/node"
