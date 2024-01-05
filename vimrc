@@ -59,5 +59,4 @@ let g:chat_gpt_session_mode=1
 
 "Codeium
 let g:codeium_disable_bindings = 1
-lua require('standardrb')
 lua require('init')
