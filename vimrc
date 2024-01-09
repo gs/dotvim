@@ -7,6 +7,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 "Completion and more
+    Plug 'ixru/nvim-markdown'
     Plug 'codota/tabnine-nvim', { 'do': './dl_binaries.sh' }
     Plug 'williamboman/mason.nvim'
     Plug 'williamboman/mason-lspconfig.nvim'
