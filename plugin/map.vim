@@ -38,3 +38,5 @@ imap <C-;>   <Cmd>call codeium#CycleCompletions(1)<CR>
 imap <C-,>   <Cmd>call codeium#CycleCompletions(-1)<CR>
 imap <C-x>   <Cmd>call codeium#Clear()<CR>
 
+nnoremap <c-d> <esc>:call CreateCheckbox()<CR>$
+

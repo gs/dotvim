@@ -9,6 +9,6 @@ function! CreateCheckbox()
   endif
   call setline('.', line)
 endfunction
-imap <c-d> <esc>:call CreateCheckbox()<CR>A
+
 
 
